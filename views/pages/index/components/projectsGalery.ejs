@@ -1,0 +1,95 @@
+<section id="project-area" class="project-area solid-bg">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-12">
+        <h2 class="section-title">Trabalho de Excelência</h2>
+        <h3 class="section-sub-title">Projetos Recentes</h3>
+      </div>
+    </div>
+    <!--/ Title row end -->
+    <div class="row">
+      <div class="col-12">
+        <div class="shuffle-btn-group">
+          <label class="active" for="all">
+            <input
+              type="radio"
+              name="shuffle-filter"
+              id="all"
+              value="all"
+              checked="checked"
+            />Todos
+          </label>
+
+          <label for="residencial">
+            <input
+              type="radio"
+              name="shuffle-filter"
+              id="residencial"
+              value="residencial"
+            />Residencial
+          </label>
+          <label for="comercial">
+            <input
+              type="radio"
+              name="shuffle-filter"
+              id="comercial"
+              value="comercial"
+            />Comercial
+          </label>
+
+          <label for="usina">
+            <input
+              type="radio"
+              name="shuffle-filter"
+              id="usina"
+              value="usina"
+            />Usina
+          </label>
+        </div>
+        <!-- project filter end -->
+        <div class="row shuffle-wrapper">
+          <div class="col-1 shuffle-sizer"></div>
+          <%dbData.projects.forEach((item, i) => { %>
+          <div
+            class="col-lg-4 col-sm-6 shuffle-item"
+            data-groups='["<%=item.tags[0]%>"]'
+          >
+            <div class="project-img-container">
+              <a
+                class="gallery-popup"
+                href="<%=item.photos[0]%>"
+                aria-label="project-img"
+              >
+                <img
+                  class="img-fluid"
+                  src="<%=item.photos[0]%>"
+                  alt="project-img"
+                />
+                <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+              </a>
+              <div class="project-item-info">
+                <div class="project-item-info-content">
+                  <h3 class="project-item-title">
+                    <a href="/projetos/<%=item.id%>"><%=item.title%></a>
+                  </h3>
+                  <p class="project-cat"><%=item.tags[0]%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- shuffle item 1 end -->
+          <%});%>
+        </div>
+        <!-- shuffle end -->
+      </div>
+      <div class="col-12">
+        <div class="general-btn text-center">
+          <a class="btn btn-primary" href="/projetos">Ver Todos os Projetos</a>
+        </div>
+      </div>
+    </div>
+    <!-- Content row end -->
+  </div>
+  <!--/ Container end -->
+</section>
+<!-- Project area end -->

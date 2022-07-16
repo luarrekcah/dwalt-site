@@ -1,0 +1,213 @@
+<%- include('../../partials/header.ejs') %>
+
+  <style>
+    .cardProduct {
+      border-radius: 4px;
+      background: #fff;
+      transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+        0.3s box-shadow,
+        0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+      padding: 18px 36px 18px 36px;
+      cursor: pointer;
+    }
+    .cardProduct:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    }
+  </style>
+
+  <div id="banner-area" class="banner-area"
+    style="background-image:url(images/banner/banner-growatt.jpg); ">
+    <div class="banner-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="banner-heading">
+              <h1 class="banner-title">Geradores</h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/produtos">Produtos</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Geradores</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="main-container" class="main-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <form action="/produtos" method="GET">
+          <!--PESQUISA DOS GERADORES E FILTROS-->
+          <h4>GERADORES - FILTRO - PESQUISA</h4>
+          <hr>
+          <h5>Tipo de Gerador</h5>
+          <div class="form-check">
+            <input class="form-check-input" data-group="ongrid" type="radio" name="typeInver" id="typeInver1"
+              value="ongrid" checked>
+            <label class="form-check-label" for="typeInver1">
+              On-Grid
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" data-group="offgrid" type="radio" name="typeInver" id="typeInver2"
+              value="offgrid">
+            <label class="form-check-label" for="typeInver2">
+              Off-Grid
+            </label>
+          </div>
+          <hr>
+          <h5>Inversor</h5>
+          <div class="form-check">
+            <input class="form-check-input" name="inversor" type="radio" data-group="growatt" id="inversor1"
+              value="growatt" checked>
+            <label class="form-check-label" for="inversor1">
+              Growatt
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="inversor" type="radio" data-group="fronius" id="inversor2"
+              value="fronius">
+            <label class="form-check-label" for="inversor2">
+              Fronius
+            </label>
+          </div>
+          <hr>
+          <h5>Painel Solar</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="placa" id="placa1" value="jinko" checked>
+            <label class="form-check-label" for="placa1">
+              Jinko
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="placa" id="placa2" value="phonosolar">
+            <label class="form-check-label" for="placa2">
+              PhonoSolar
+            </label>
+          </div>
+          <hr>
+          <h5>Potência do Gerador</h5>
+          <div class="row">
+            <div class="col">
+              <input type="text" id="producao" name="prod" class="form-control" placeholder="Produção Mês">
+            </div>
+            <div class="col">
+              <input type="text" id="kwp" name="kwp" class="form-control" placeholder="kWp">
+            </div>
+          </div>
+          <hr>
+          <h5>Tensão de Saída</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tensao" id="tensao1" value="220v" checked>
+            <label class="form-check-label" for="tensao1">
+              220v
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="tensao" id="tensao2" value="380v">
+            <label class="form-check-label" for="tensao2">
+              380v
+            </label>
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-primary" style="width:100%;">FILTRAR</button>
+          </form>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <% products.forEach((item, i)=> { %>
+              <div class="col-lg-4 col-md-6 mb-4 cardProduct" data-groups='["growatt"]'>
+                <div class="latest-post">
+                  <div class="latest-post-media">
+                    <a href="/produtos/<%=item.codigo%>" class="latest-post-img">
+                      <img loading="lazy" class="img-fluid" src="<%= item.img %>" alt="img">
+                    </a>
+                  </div>
+                  <div class="post-body">
+                    <h3 class="post-title">
+                      <a href="/produtos/<%=item.codigo%>"
+                        style="color: #337ab7; font-size:20px; font-family: sans-serif;" class="d-inline-block">
+                        <%=item.tituloResumo%> - (<%=item.codigo%>)
+                      </a>
+                    </h3>
+                    <h5 style="color:black; font-size:14px; font-family: sans-serif;">
+                      <%=item.descTitulo%>
+                    </h5>
+                    <div class="latest-post-meta">
+                      <h4 class="post-title" style="color: red; font-size: 20px">
+                        R$<%=item.valor%>
+                      </h4>
+                      <span class="post-item-date">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-stopwatch" viewBox="0 0 16 16">
+                          <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />
+                          <path
+                            d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
+                        </svg>
+                        <script>
+                          document.write(moment("<%=item.data%>").fromNow());
+                        </script>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
+      </div>
+      <div class="gap-20"></div>
+    </div>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    if(params.get("typeInver").toLowerCase() === 'ongrid') {
+      document.getElementById("typeInver2").removeAttribute('checked')
+      document.getElementById("typeInver1").setAttribute('checked', "")
+    } else {
+      document.getElementById("typeInver2").setAttribute('checked', "")
+      document.getElementById("typeInver1").removeAttribute('checked')
+    }
+
+    if(params.get("inversor").toLowerCase() === 'growatt') {
+      document.getElementById("inversor2").removeAttribute('checked')
+      document.getElementById("inversor1").setAttribute('checked', "")
+    } else {
+      document.getElementById("inversor2").setAttribute('checked', "")
+      document.getElementById("inversor1").removeAttribute('checked')
+    }
+
+    if(params.get("placa").toLowerCase() === 'jinko') {
+      document.getElementById("placa2").removeAttribute('checked')
+      document.getElementById("placa1").setAttribute('checked', "")
+    } else {
+      document.getElementById("placa2").setAttribute('checked', "")
+      document.getElementById("placa1").removeAttribute('checked')
+    }
+
+    if(params.get("prod")) {
+      document.getElementById("producao").value = params.get('prod').toLowerCase();
+    } 
+
+    if(params.get("kwp")) {
+      document.getElementById("kwp").value = params.get('kwp').toLowerCase();
+    } 
+
+    if(params.get("tensao").toLowerCase() === '220v') {
+      document.getElementById("tensao2").removeAttribute('checked')
+      document.getElementById("tensao1").setAttribute('checked', "")
+    } else {
+      document.getElementById("tensao2").setAttribute('checked', "")
+      document.getElementById("tensao1").removeAttribute('checked')
+    }
+
+  </script>
+
+  <%- include('../../partials/footer.ejs') %>

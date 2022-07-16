@@ -1,0 +1,75 @@
+<%- include('../../partials/header.ejs') %>
+    <div id="banner-area" class="banner-area" style="background-image:url(images/banner/banner1.jpg)">
+        <div class="banner-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="banner-heading">
+                            <h1 class="banner-title">F.A.Q</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item"><a href="/">Página Principal</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Empresa</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="main-container" class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3 class="border-title border-left mar-t0">Perguntas Frequentes</h3>
+                    <div class="accordion accordion-group accordion-classic" id="construction-accordion">
+                        <% dbData.faq.forEach((item, i)=> { %>
+                            <div class="card">
+                                <div class="card-header p-0 bg-transparent" id="heading<%=i%>">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                                            data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>">
+                                            <%=item.q%>
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse<%=i%>" class="collapse" aria-labelledby="heading<%=i%>"
+                                    data-parent="#construction-accordion">
+                                    <div class="card-body">
+                                        <%=item.r%>
+                                    </div>
+                                </div>
+                            </div>
+                            <%});%>
+                    </div>
+                </div>
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="sidebar sidebar-right">
+                        <div class="widget recent-posts">
+                            <h3 class="widget-title">Posts Recentes</h3>
+                            <ul class="list-unstyled">
+                                <% dbData.blogPosts.forEach((item, i)=> { %>
+                                    <li class="d-flex align-items-center">
+                                        <div class="posts-thumb">
+                                            <a href="/blog/<%=item.id%>"><img loading="lazy" alt="img"
+                                                    src="<%=item.media.src%>"></a>
+                                        </div>
+                                        <div class="post-info">
+                                            <h4 class="entry-title">
+                                                <a href="/blog/<%=item.id%>">
+                                                    <%=item.title%>
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </li>
+                                    <% }); %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('../../partials/footer.ejs') %>

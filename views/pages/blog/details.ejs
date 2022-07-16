@@ -1,0 +1,150 @@
+<%- include('../../partials/header.ejs') %>
+  <div id="banner-area" class="banner-area" style="background-image:url(https://cdn.discordapp.com/attachments/921106059375046706/921424996532912168/header.jpg)">
+    <div class="banner-text">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="banner-heading">
+              <h1 class="banner-title"><%=post.title%></h1>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><%=post.title%></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="main-container" class="main-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mb-5 mb-lg-0">
+          <div class="post-content post-single">
+            <div class="post-media post-image">
+              <img loading="lazy" src="<%=post.media.src%>" class="img-fluid" alt="post-image">
+            </div>
+            <div class="post-body">
+              <div class="entry-header">
+                <div class="post-meta">
+                  <span class="post-author">
+                    <i class="far fa-user"></i><a href="/staff/<%=post.author.id%>"> Autor</a>
+                  </span>
+                  <span class="post-cat">
+                    <i class="far fa-folder-open"></i><a href="#">
+                      <%=post.tags[0]%>
+                    </a>
+                  </span>
+                  <span class="post-meta-date"><i class="far fa-calendar"></i>
+                    <script>
+                      document.write(moment("<%=post.date%>").fromNow());
+                    </script>
+                  </span>
+                  <span class="post-comment"><i class="far fa-comment"></i><a href="/blog/<%post.id%>#disqus_thread"
+                      class="comments-link"></a></span>
+                </div>
+                <h2 class="entry-title">
+                  <%=post.title%>
+                </h2>
+              </div>
+              <div class="entry-content">
+                <% post.content.forEach((item, i)=> { %>
+                  <% if(item.element==="p" ) {%>
+                    <p>
+                      <%=item.content%>
+                    </p>
+                    <%} else if(item.element==="blockquote" ) {%>
+                      <blockquote>
+                        <p>
+                          <%=item.content%><cite>-
+                              <%=item.author%>
+                            </cite>
+                        </p>
+                      </blockquote>
+                      <%}%>
+                        <%})%>
+              </div>
+              <div class="tags-area d-flex align-items-center justify-content-between">
+                <div class="post-tags">
+                  <% post.tags.forEach((item, i)=> { %>
+                    <a href="#">
+                      <%=item%>
+                    </a>
+                    <%})%>
+                </div>
+                <div class="share-items">
+                  <ul class="post-social-icons list-unstyled">
+                    <li class="social-icons-head">Compartilhe:</li>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="author-box d-nlock d-sm-flex">
+            <div class="author-img mb-4 mb-md-0">
+              <img loading="lazy" src="images/news/avator1.png" alt="author">
+            </div>
+            <div class="author-info">
+              <h3>Elton Themen<span>Site Engineer</span></h3>
+              <p class="mb-2">Lisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad vene
+                minim
+                veniam, quis nostrud exercitation nisi ex ea commodo.</p>
+              <p class="author-url mb-0">Website: <span><a href="#">http://www.example.com</a></span></p>
+            </div>
+          </div>
+          <div id="comments" class="comments-area">
+            <h3 class="comments-heading">07 Comentários</h3>
+            <!--DISQUOS-->
+            <!--DISQUOS-->
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="sidebar sidebar-right">
+            <div class="widget recent-posts">
+              <h3 class="widget-title">Posts Recentes</h3>
+              <ul class="list-unstyled">
+                <% dbData.blogPosts.forEach((item, i)=> { %>
+                <li class="d-flex align-items-center">
+                  <div class="posts-thumb">
+                    <a href="/blog/<%=item.id%>"><img loading="lazy" alt="img" src="<%=item.media.src%>"></a>
+                  </div>
+                  <div class="post-info">
+                    <h4 class="entry-title">
+                      <a href="/blog/<%=item.id%>"><%=item.title%></a>
+                    </h4>
+                  </div>
+                </li>
+              <% }); %>
+              </ul>
+            </div>
+            <div class="widget">
+              <h3 class="widget-title">Categorias</h3>
+              <ul class="arrow nav nav-tabs">
+                <li><a href="#">Residencial</a></li>
+                <li><a href="#">Comercial</a></li>
+                <li><a href="#">Usina</a></li>
+                <li><a href="#">Notícia</a></li>
+                <li><a href="#">Novidades</a></li>
+              </ul>
+            </div>
+            <div class="widget">
+              <h3 class="widget-title">Arquivos </h3>
+              <ul class="arrow nav nav-tabs">
+                <li><a href="#">Vazio</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <%- include('../../partials/footer.ejs') %>

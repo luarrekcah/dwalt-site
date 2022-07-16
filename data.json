@@ -1,0 +1,47 @@
+{
+    "product": {
+        "code": "aaa",
+        "composition": "",
+        "postedDate": "",
+        "title": "",
+        "description": "",
+        "mediaSrc": ["aa"],
+        "datasheet": {
+            "systemType": "ongrid",
+            "inverter": {
+                "brand":"Growatt",
+                "power":"2"
+            },
+            "modules": {
+                "brand": "Jinko",
+                "power": "450",
+                "quantity": "20"
+            },
+            "outputVoltage": "220v"
+        },
+        "paymentIdentifier": {
+            "stripe": "AAAA"
+        }
+    },
+    "blogPosts": [
+        {
+            "id":"4-erro-ao-pagar-a-fatura",
+            "title":"Você está pagando sua fatura da maneira errada!",
+            "author": {
+                "id":"raul_rd"
+            },
+            "media": {
+                "type":"image",
+                "src":"https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/1%20(1).jpg?v=1642529304958"
+            },
+            "date":"2022-01-18T13:47:11-05:00",
+            "content": [
+                {
+                    "element":"p",
+                    "content":"Com o BB Crédito Energia Renovável, financie sistemas voltaicos que captam a luz do sol durante o dia e a convertem a fim de gerar energia solar residencial, economizando até 95% da sua conta. Além do baixo impacto ambiental, a instalação desse sistema é simples, de baixo custo e com grande potencial econômico. Assim, você usa o ar-condicionado, a sauna, o forno elétrico ou iluminações sem se preocupar e ainda valoriza o seu imóvel."
+                }
+            ],
+            "tags":["Você Sabia?"]
+        }
+    ]
+}

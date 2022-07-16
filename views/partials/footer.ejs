@@ -1,0 +1,153 @@
+<section id="ts-service-area" class="ts-service-area pb-0">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="section-title">Sistemas Solar instalados por nós</h2>
+        <h3 class="section-sub-title">Localizações</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mapaaa" id="mapaaa" style="width: 100%; height: 400px;"></div>
+    </div>
+</section>
+
+
+<section id="ts-service-area" class="ts-service-area pb-0">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-12">
+        <h2 class="section-title">Localização da</h2>
+        <h3 class="section-sub-title">SEDE</h3>
+      </div>
+    </div>
+    <div class="row">
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245.59760476528203!2d-67.81487093040573!3d-9.970418807599653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x917f8d97170ff465%3A0x47373b90d79e7fdd!2sD%20%7C%20Walt%20Engenharia!5e0!3m2!1spt-BR!2sbr!4v1650397766109!5m2!1spt-BR!2sbr"
+        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+
+<footer id="footer" class="footer bg-overlay">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-4 col-md-6 footer-widget footer-about">
+          <h3 class="widget-title">Sobre Nós</h3>
+          <img loading="lazy" width="200px" class="footer-logo"
+            src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/d%20walt%20logo%20nova.svg?v=1644971753268"
+            alt="Constra">
+          <p>Com mais de 5 anos de experiência no mercado, nós acreditamos em um serviço de atendimento aos clientes de
+            altíssima qualidade – mas também somos da opinião de que todos os nossos clientes merecem vivenciar uma
+            experiência de compra inesquecível, e é por isso que tentamos proporcionar produtos excelentes a um preço
+            acessível.</p>
+          <div class="footer-social">
+            <ul>
+              <li><a href="https://facebook.com/themefisher" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li><a href="https://instagram.com/themefisher" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 footer-widget mt-5 mt-md-0">
+          <h3 class="widget-title">Horário de Funcionamento</h3>
+          <div class="working-hours">
+            Trabalhamos 6 dias por semana, todos os dias, exceto feriados importantes. Contate-nos em caso de
+            emergência, através da nossa linha direta e formulário de contato.
+            <br><br> Segunda - Sexta: <span class="text-right">08:00 - 18:00</span>
+            <br> Sábado e feriados: <span class="text-right">08:00 - 11:00</span>
+            <br> Domingo: <span class="text-right">Fechado</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+          <h3 class="widget-title">Serviços</h3>
+          <ul class="list-arrow">
+            <% dbData.services.forEach((item, i)=> { %>
+              <li><a href="/servicos/<%= item.id %> ">
+                  <%= item.title %>
+                </a></li>
+              <% }); %>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0 footer-widget">
+          <h3 class="widget-title">Formas de Pagamento</h3>
+          <ul style="list-style: none;">
+            <div class="row">
+              <li><i style="font-size: 50px; margin: 0px 5px 0px 5px;" class="fab fa-cc-stripe"></i></li>
+              <li><i style="font-size: 50px; margin: 0px 5px 0px 5px;" class="fab fa-cc-visa"></i></li>
+              <li><i style="font-size: 50px; margin: 0px 5px 0px 5px;" class="fab fa-cc-mastercard"></i></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="copyright-info text-center text-md-left">
+            <span>Copyright D Walt Engenharia &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script> Todos os Direitos Reservados, design &amp; desenvolvimento por <a
+                href="https://themefisher.com">Themefisher</a> & <a href="https://www.devluar.com">Raul Rodrigues</a>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="footer-menu text-center text-md-right">
+            <ul class="list-unstyled">
+              <li><a href="/sobre">Sobre</a></li>
+              <li><a href="/staffs">Staffs</a></li>
+              <li><a href="/faq">F.A.Q</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/loja">Produtos</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top position-fixed">
+        <button class="btn btn-primary" title="Back to Top">
+          <i class="fa fa-angle-double-up"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/plugins/jQuery/jquery.min.js"></script>
+<script src="/plugins/bootstrap/bootstrap.min.js" defer></script>
+<script src="/plugins/slick/slick.min.js"></script>
+<script src="/plugins/slick/slick-animation.min.js"></script>
+<script src="/plugins/colorbox/jquery.colorbox.js"></script>
+<script src="/plugins/shuffle/shuffle.min.js" defer></script>
+<script src="/js/script.js"></script>
+<script src="/plugins/aos/aos.js"></script>
+<script type="text/javascript" src="/plugins/notifIt/notifIt.js"></script>
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
+<script>
+  let map = L.map('mapaaa').setView([-11.12, -51.661], 3);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    { attribution: '© OpenStreetMap contributors' }).addTo(map);
+  let LeafIcon = L.Icon.extend({
+    options: {
+      shadowUrl: 'leaf-shadow.png',
+      iconSize: [60, 60],
+    }
+  });
+
+  let systemIcon = new LeafIcon({ iconUrl: 'https://static.wixstatic.com/media/2f7194_fa185c61f22e43f193b873822dec1beb~mv2.png/v1/fill/w_426,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Placa-Painel-Solar.png' });
+
+  let mGreen = L.marker([-9.9194046, -63.0370242], { icon: systemIcon }).bindPopup('Hospital Monte Sinai - XXkWp').addTo(map);
+  let mRed = L.marker([-10.33562, -67.184761662], { icon: systemIcon }).bindPopup('Francisco - 16,20kWp').addTo(map);
+  let mOrange = L.marker([-8.7673898, -63.8996654], { icon: systemIcon }).bindPopup('Sistema joão 28kWp').addTo(map); 
+</script>
+</div>
+</body>
+
+</html>

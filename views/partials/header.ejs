@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>
+    <%= og.title %> | D Walt Engenharia
+  </title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content=" <%= og.desc %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <link rel="icon" type="image/png"
+    href="https://cdn.glitch.com/e3790b73-514c-45b3-a987-85c9a4b7481f%2Ficon.png?v=1619204720782">
+  <link rel="shortcut icon"
+    href="https://cdn.glitch.com/e3790b73-514c-45b3-a987-85c9a4b7481f%2Ficon.png?v=1619204720782">
+  <link rel="stylesheet" href="/plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/plugins/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="/plugins/animate-css/animate.css">
+  <link rel="stylesheet" href="/plugins/slick/slick.css">
+  <link rel="stylesheet" href="/plugins/slick/slick-theme.css">
+  <link rel="stylesheet" href="/plugins/colorbox/colorbox.css">
+  <link href="/plugins/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+  <script>
+    moment.locale('pt-br');   
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+  
+  <link rel="stylesheet" type="text/css" href="/plugins/notifIt/notifIt.css">
+  <meta name="keywords" content="energia solar, kit energia solar, placa de energia solar, energia solar residencial
+  energia solar fotovoltaica, o que é energia solar, energia solar preço, energia solar vantagens e desvantagens
+  energia solar como funciona, kit energia solar residencial preço, como funciona a energia solar, financiamento energia solar
+  empresas de energia solar">
+  <meta property="og:title" content="<%= og.title %> | D Walt Engenharia" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="<%= og.desc %>" />
+  <meta property="og:image" content="<%= og.banner %>" />
+  <meta property="og:url" content="https://www.dlwalt.com/" />
+  <meta property="og:site_name" content="D | Walt Engenharia" />
+  <meta property="fb:admins" content="dlwalt" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content="https://www.dlwalt.com/" />
+  <meta name="twitter:title" content="<%= og.title %>" />
+  <meta name="twitter:description" content="<%= og.desc %>" />
+  <meta name="twitter:image" content="<%= og.banner %>" />
+</head>
+
+<body>
+  <div class="body-inner">
+    <div id="top-bar" class="top-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8">
+            <ul class="top-info text-center text-md-left">
+              <li><i class="fas fa-map-marker-alt"></i>
+                <p class="info-text">Av. Ceará, 2042 - Bosque - Rio Branco - AC CEP 69900-379
+                  / CNPJ: 26.711.744/0001-08</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
+            <ul class="list-unstyled">
+              <li>
+                <a title="Facebook" href="<%= dbData.infos.facebook %>">
+                  <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
+                </a>
+                <a title="Instagram" href="<%= dbData.infos.instagram %>">
+                  <span class="social-icon"><i class="fab fa-instagram"></i></span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header id="header" class="header-one" >
+      <div class="bg-white">
+        <div class="container">
+          <div class="logo-area">
+            <div class="row align-items-center">
+              <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
+                <a class="d-block" href="/">
+                  <img loading="lazy"
+                    src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/d%20walt%20logo%20nova.svg?v=1644971753268"
+                    alt="D Walt Logo">
+                </a>
+              </div>
+              <div class="col-lg-9 header-right">
+                <ul class="top-info-box">
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                        <p class="info-box-title">Telefones</p>
+                        <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefone %>">
+                            <%= dbData.infos.telefone %>
+                          </a></p>
+                        <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefoneTwo %>">
+                            <%= dbData.infos.telefoneTwo %>
+                          </a></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="info-box">
+                      <div class="info-box-content">
+                        <p class="info-box-title">E-mail</p>
+                        <p class="info-box-subtitle"><a href="mailto:<%= dbData.infos.email %>">
+                            <%= dbData.infos.email %>
+                          </a></p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="last">
+                    <div class="info-box last">
+                      <div class="info-box-content">
+                        <p class="info-box-title">Certificados Globais</p>
+                        <p class="info-box-subtitle">ISO em breve.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="header-get-a-quote">
+                    <a class="btn btn-primary" href="<%= dbData.infos.whatsapp %>">Orçamento</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <h3 data-aos="zoom-in" class="slogan" style=" color:#3266af; text-align: center; padding: 20px margin-bottom: -10px;
+            padding-top: 30px;">
+              Bem vindo à maior revenda de energia solar do
+              <b style="color: #00a859">Brasil</b>!
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="site-navigation" style="z-index: 900;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+                  aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbar-collapse" class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/">Página Principal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog">blog</a></li>
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Empresa <i
+                          class="fa fa-angle-down"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/vagas">Trabalhe Conosco</a></li>
+                        <li class="dropdown-submenu">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Termos e Políticas</a>
+                          <ul class="dropdown-menu">
+                            <li><a href="/politica">Política de Privacidade</a></li>
+                            <li><a href="/termos">TERMOS E CONDIÇÕES GERAIS DE USO E/OU DE VENDA</a></li>
+                          </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dúvidas</a>
+                          <ul class="dropdown-menu">
+                            <li><a href="/faq">F.A.Q</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="/staffs">Staffs</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ferramentas <i
+                          class="fa fa-angle-down"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/integracoes/banco-bv">Banco BV</a></li>
+                        <li><a href="/mediakit">Media Kit</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="/contato">contato</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div data-toggle="modal" data-target="#searchModal" class="nav-search">
+            <span id="search"><i class="fa fa-search"></i></span>
+          </div>
+          <!--
+            <div class="search-block" style="display: none;">
+            <label for="search-field" class="w-100 mb-0">
+              <input type="text" class="form-control" id="search-field"
+                placeholder="Escreva o que você precisa e aperte ENTER">
+            </label>
+            <span class="search-close">&times;</span>
+          </div> 
+        -->
+        </div>
+      </div>
+    </header>
+    <% if(logMessage.content !==null) { %>
+      <script>
+        setTimeout(() => {
+          notif({
+            msg: `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+</svg> <%=logMessage.content%>`,
+            type: "<%=logMessage.type%>",
+            position: "bottom"
+          });
+        }, 3000)
+      </script>
+      <% } %>
+
+      
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel">Pesquisar no site</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="z-index: 999;">
+         <form action="/pesquisa" method="get">
+          <input type="text" class="form-control" name="q" aria-describedby="searchHelp" placeholder="Gerador..." required>
+          <hr>
+          <button style="width: 100%;" type="submit" class="btn btn-primary">Pesquisar</button>
+         </form>
+      </div>
+    </div>
+  </div>
+</div>

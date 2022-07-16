@@ -1,0 +1,24 @@
+<%- include('../../partials/header.ejs') %>
+  <section class="main-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h3>Resultados de Pesquisa</h3>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="list-group" style="width: 100%;">
+            <% if(results.length === 0) { %>
+              <p>Não foram encontrados resultados para a pesquisa. Tente novamente ou retorne a <a href="/" style="color: blue;">página inicial</a>.</p>
+            <% } else { %> 
+            <% results.forEach((item, i) => { %>
+              <li class="list-group-item"><a href="<%= item.href %>"><%= item.title %></a></li>
+            <% }) %> 
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<%- include('../../partials/footer.ejs') %>

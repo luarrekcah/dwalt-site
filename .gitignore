@@ -4,3 +4,5 @@ node_modules
 ngrok.exe
 
 .ngrok.exe.old
+
+yarn-error.log

@@ -125,23 +125,23 @@
               <div class="col-lg-4 col-md-6 mb-4 cardProduct" data-groups='["growatt"]'>
                 <div class="latest-post">
                   <div class="latest-post-media">
-                    <a href="/produtos/<%=item.codigo%>" class="latest-post-img">
-                      <img loading="lazy" class="img-fluid" src="<%= item.img %>" alt="img">
+                    <a href="/produtos/<%=item.code%>" class="latest-post-img">
+                      <img loading="lazy" class="img-fluid" src="<%= item.mediaSrc[0] %>" alt="img">
                     </a>
                   </div>
                   <div class="post-body">
                     <h3 class="post-title">
-                      <a href="/produtos/<%=item.codigo%>"
+                      <a href="/produtos/<%=item.code%>"
                         style="color: #337ab7; font-size:20px; font-family: sans-serif;" class="d-inline-block">
-                        <%=item.tituloResumo%> - (<%=item.codigo%>)
+                        <%=item.resumedtitle%> - (<%=item.code%>)
                       </a>
                     </h3>
                     <h5 style="color:black; font-size:14px; font-family: sans-serif;">
-                      <%=item.descTitulo%>
+                      <%=item.desc%>
                     </h5>
                     <div class="latest-post-meta">
                       <h4 class="post-title" style="color: red; font-size: 20px">
-                        R$<%=item.valor%>
+                        R$<%=item.value%>
                       </h4>
                       <span class="post-item-date">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -151,7 +151,7 @@
                             d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
                         </svg>
                         <script>
-                          document.write(moment("<%=item.data%>").fromNow());
+                          document.write(moment("<%=item.postedDate%>").fromNow());
                         </script>
                       </span>
                     </div>

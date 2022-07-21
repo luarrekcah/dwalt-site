@@ -143,9 +143,10 @@
 
   let systemIcon = new LeafIcon({ iconUrl: 'https://static.wixstatic.com/media/2f7194_fa185c61f22e43f193b873822dec1beb~mv2.png/v1/fill/w_426,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Placa-Painel-Solar.png' });
 
-  let mGreen = L.marker([-9.9194046, -63.0370242], { icon: systemIcon }).bindPopup('Hospital Monte Sinai - XXkWp').addTo(map);
-  let mRed = L.marker([-10.33562, -67.184761662], { icon: systemIcon }).bindPopup('Francisco - 16,20kWp').addTo(map);
-  let mOrange = L.marker([-8.7673898, -63.8996654], { icon: systemIcon }).bindPopup('Sistema joão 28kWp').addTo(map); 
+  <% dbData.projects.forEach((item, i)=> { %>
+    <%if(!item.coords) return;%>
+    L.marker([<%=item.coords.split(",")[0]%>, <%=item.coords.split(",")[1]%>], { icon: systemIcon }).bindPopup('<%=item.desc%>').addTo(map);
+  <%});%>
 </script>
 </div>
 </body>

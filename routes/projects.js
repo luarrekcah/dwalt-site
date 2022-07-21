@@ -36,7 +36,7 @@ router.get("/:id", (req, res, next) => {
         og: {
           title: "Projeto - " + findById().title,
           desc: findById().desc,
-          banner: findById().photos[0],
+          banner: findById().media[0],
         },
         logMessage: {
           content: null,

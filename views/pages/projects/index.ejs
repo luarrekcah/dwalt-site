@@ -52,10 +52,11 @@
                     <div class="row shuffle-wrapper">
                         <div class="col-1 shuffle-sizer"></div>
                         <%dbData.projects.forEach((item, i)=> { %>
-                            <div style="padding:5px" class="col-lg-4 col-sm-6 shuffle-item" data-groups='["<%=item.tags[0]%>"]'>
+                            <%if(!item.coords) return %>
+                            <div style="padding:5px" class="col-lg-4 col-sm-6 shuffle-item" data-groups='["<%=item.type%>"]'>
                                 <div class="project-img-container">
-                                    <a class="gallery-popup" href="<%=item.photos[0]%>" aria-label="project-img">
-                                        <img class="img-fluid" src="<%=item.photos[0]%>" alt="project-img" />
+                                    <a class="gallery-popup" href="<%=item.media[0]%>" aria-label="project-img">
+                                        <img class="img-fluid" src="<%=item.media[0]%>" alt="project-img" />
                                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                                     </a>
                                     <div class="project-item-info">
@@ -66,7 +67,7 @@
                                                 </a>
                                             </h3>
                                             <p class="project-cat">
-                                                <%=item.tags[0]%>
+                                                <%=item.type%>
                                             </p>
                                         </div>
                                     </div>

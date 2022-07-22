@@ -144,7 +144,8 @@
                       <hr />
                       <h4 style="color: red">R$<%= product.value %></h4>
                       <p>* entraremos em contato para uma compra com garantia</p>
-                      <input style="display:none;" name="price" value="<%= product.stripePrice %>"/>
+                      <input style="display:none;" name="prodName" value="<%= product.resumedtitle%>"/>
+                      <input style="display:none;" name="value" value="<%= product.value %>"/>
                       <button class="btn btn-success" type="submit" id="submit" style="width: 100%">Comprar</button>
                     </form>
                   </div>

@@ -1,19 +1,31 @@
 const express = require("express"),
   router = express.Router();
 
+  require('dotenv').config()
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2020-08-27",
 });
 
 router.post("/", async function (req, res, next) {
+
+  console.log(req.body);
+  
   const domainURL = process.env.DOMAIN,
-        price = req.body.price
+   product = await stripe.products.create({
+    name: req.body.prodName,
+  }), price = await stripe.prices.create({
+    unit_amount: req.body.value,
+    currency: 'brl',
+    product: product.id,
+  });
+
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [
       {
-        price: price,
+        price,
         quantity: 1,
       },
     ],

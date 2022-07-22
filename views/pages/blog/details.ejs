@@ -43,7 +43,7 @@
                       document.write(moment("<%=post.date%>").fromNow());
                     </script>
                   </span>
-                  <span class="post-comment"><i class="far fa-comment"></i><a href="/blog/<%post.id%>#disqus_thread"
+                  <span class="post-comment"><i class="far fa-comment"></i><a href="/blog/<%=post.id%>#disqus_thread"
                       class="comments-link"></a></span>
                 </div>
                 <h2 class="entry-title">
@@ -87,22 +87,38 @@
               </div>
             </div>
           </div>
-          <div class="author-box d-nlock d-sm-flex">
-            <div class="author-img mb-4 mb-md-0">
-              <img loading="lazy" src="images/news/avator1.png" alt="author">
-            </div>
-            <div class="author-info">
-              <h3>Elton Themen<span>Site Engineer</span></h3>
-              <p class="mb-2">Lisicing elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad vene
-                minim
-                veniam, quis nostrud exercitation nisi ex ea commodo.</p>
-              <p class="author-url mb-0">Website: <span><a href="#">http://www.example.com</a></span></p>
-            </div>
-          </div>
+          
           <div id="comments" class="comments-area">
-            <h3 class="comments-heading">07 Comentários</h3>
-            <!--DISQUOS-->
-            <!--DISQUOS-->
+            <h3 class="comments-heading"><a
+              class="comments-link"
+              href="/blog/posts/<%=post.id%>#disqus_thread"
+            ></a></h3>
+            <div id="disqus_thread"></div>
+          <script>
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+            /*
+              var disqus_config = function () {
+              this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              };
+              */
+            (function() {
+              // DON'T EDIT BELOW THIS LINE
+              var d = document,
+                s = d.createElement("script");
+              s.src = "https://d-walt-engenharia.disqus.com/embed.js";
+              s.setAttribute("data-timestamp", +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript
+            >Please enable JavaScript to view the
+            <a href="https://disqus.com/?ref_noscript"
+              >comments powered by Disqus.</a
+            ></noscript
+          >
           </div>
         </div>
         <div class="col-lg-4">
@@ -145,6 +161,12 @@
       </div>
     </div>
   </section>
+
+  <script
+  id="dsq-count-scr"
+  src="//d-walt-engenharia.disqus.com/count.js"
+  async
+></script>
 
 
   <%- include('../../partials/footer.ejs') %>

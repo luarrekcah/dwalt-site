@@ -12,20 +12,19 @@ router.post("/", async function (req, res, next) {
   console.log(req.body);
   
   const domainURL = process.env.DOMAIN,
-   product = await stripe.products.create({
+  product = await stripe.products.create({
     name: req.body.prodName,
   }), price = await stripe.prices.create({
-    unit_amount: req.body.value,
+    unit_amount: req.body.value.replace(".","").replace(",",""),
     currency: 'brl',
     product: product.id,
   });
-
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     line_items: [
       {
-        price,
+        price: price.id,
         quantity: 1,
       },
     ],

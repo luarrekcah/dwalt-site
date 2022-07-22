@@ -15,8 +15,8 @@ router.get("/", (req, res, next) => {
     let results = [];
 
     snapshot.val().products.forEach((item, i) => {
-      if (snapshot.val().products[i].tituloResumo.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().products[i].tituloResumo, href: `/produtos/${snapshot.val().products[i].codigo}`});
+      if (snapshot.val().products[i].resumedtitle.toLowerCase().includes(req.query.q.toLowerCase()) ) {
+         results.push({title: snapshot.val().products[i].resumedtitle, href: `/produtos/${snapshot.val().products[i].code}`});
       }
     });
 

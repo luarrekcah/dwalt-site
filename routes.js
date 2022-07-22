@@ -9,6 +9,10 @@ const indexRouter = require("./routes/index"),
   staffsRouter = require("./routes/staffs"),
   notFoundRouter = require("./routes/404");
 
+  const checkoutSessionRouter = require("./routes/stripe-payment/checkout-session"),
+  createCheckoutSessionRouter = require("./routes/stripe-payment/create-checkout-session"),
+  webhookRouter = require("./routes/stripe-payment/webhook");
+
 require('./listener');
 
 module.exports = (app) => {
@@ -21,6 +25,10 @@ module.exports = (app) => {
   app.use("/vagas", jobsRouter);
   app.use("/pesquisa", searchRouter);
   app.use("/staffs", staffsRouter);
+
+  app.use("/checkout-session", checkoutSessionRouter);
+  app.use("/create-checkout-session", createCheckoutSessionRouter);
+  app.use("/webhook", webhookRouter);
 
   app.use("*", notFoundRouter);
 } 

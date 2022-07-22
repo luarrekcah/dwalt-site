@@ -6,3 +6,5 @@ ngrok.exe
 .ngrok.exe.old
 
 yarn-error.log
+
+.env

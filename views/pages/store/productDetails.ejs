@@ -47,18 +47,34 @@
                         R$<%=product.value%>
                             <p style="display: inline;">Instalação Não Inclusa</p>
                     </h3>
-                    <a class="btn btn-primary" href="#" style="width: 100%" data-toggle="modal"
-                        data-target="#paymentType">Comprar</a>
-                    <br><br>
-                    <img class="w-100"
-                        src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/bancos.png?v=1641831867235">
-                    <br><br>
-                    <b>Composto Por:</b>
-                    <p>
-                        <%=product.composition%>
-                    </p>
+                    <% if(logMessage.content) { %>
+
+                        <a class="btn btn-primary" style="width: 100%">Enviado</a>
+                        <br /><br />
+                        <a class="btn btn-outline-primary" style="width: 100%" data-toggle="modal"
+                            data-target="#enviarDados">Reenviar</a>
+
+                        <% } else { %>
+
+                            <a class="btn btn-primary" href="#" style="width: 100%" data-toggle="modal"
+                                data-target="#paymentType">Comprar</a>
+
+                            <% } %>
+                                <img class="w-100"
+                                    src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/bancos.png?v=1641831867235">
+                                <br><br>
+                                <b>Composto Por:</b>
+                                <p>
+                                    <%=product.composition%>
+                                </p>
                 </div>
             </div>
         </div>
     </section>
+
+    
+<%- include('./modals/selectPaymentType.ejs') %>
+
+<%- include('./modals/sendData.ejs') %>
+
     <%- include('../../partials/footer.ejs') %>

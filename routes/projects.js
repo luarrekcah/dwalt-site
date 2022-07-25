@@ -34,9 +34,9 @@ router.get("/:id", (req, res, next) => {
         dbData: snapshot.val(),
         project: findById(),
         og: {
-          title: "Projeto - " + findById().title,
-          desc: findById().desc,
-          banner: findById().media[0],
+          title: "Projeto - " + findById() === undefined ? 'Projeto' : findById().title,
+          desc: findById() === undefined ? 'None' : findById().desc,
+          banner: findById() === undefined ? 'None' : findById().media[0],
         },
         logMessage: {
           content: null,

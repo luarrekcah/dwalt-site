@@ -66,13 +66,14 @@ router.get("/:id", (req, res) => {
     const db = getDatabase();
     const dataWebSite = ref(db, "dataWebSite");
     onValue(dataWebSite, (snapshot) => {
-        const product = snapshot.val().products.find((item) => item.code === req.params.id)
+        const products = snapshot.val().products;
+        const product = products.find((item) => item.code === req.params.id)
         const data = {
             dbData: snapshot.val(),
             og: {
-                title: `${product.resumedtitle} - Produtos`,
-                desc: `Informações do ${product.resumedtitle}`,
-                banner: product.media,
+                title: `${product === undefined ? 'Gerador' : product.resumedtitle} - Produtos`,
+                desc: `Informações do ${product === undefined ? 'Gerador' : product.resumedtitle}`,
+                banner: product === undefined ? 'None' : product.media,
             },
             product,
             logMessage

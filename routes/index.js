@@ -29,6 +29,10 @@ router.get("/sitemap.xml", function (req, res, next) {
   res.send(xml);
 });
 
+router.get("/mediakit", function (req, res, next) {
+  res.send(fs.readFileSync(__dirname + '/../public/mediaKit.rar'));
+});
+
 router.get("/politica", function (req, res, next) {
   const db = getDatabase();
   const dataWebSite = ref(db, "dataWebSite");

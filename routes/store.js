@@ -22,11 +22,22 @@ router.get("/", (req, res) => {
         let products = [];
         if (!objetoVazio(req.query)) {
             products = snapshot.val().products.filter((item, i) => {
-                if (snapshot.val().products[i].typeInver === req.query.typeInver
-                    && snapshot.val().products[i].inversor === req.query.inversor
-                    && snapshot.val().products[i].placa === req.query.placa
-                    && ((snapshot.val().products[i].prod >= req.query.prod || req.query.prod >= 0)
-                        || (snapshot.val().products[i].kwp >= req.query.kwp || req.query.kwp >= 0))
+                if (
+                    snapshot.val().products[i].datasheet.typeInver === req.query.typeInver
+                    && snapshot.val().products[i].datasheet.brandInverter === req.query.inversor
+                    && snapshot.val().products[i].datasheet.brandModule === req.query.placa
+                    && (
+                        (
+                            (
+                                (snapshot.val().products[i].datasheet.modules.power
+                                    * snapshot.val().products[i].datasheet.modules.quantity)
+                                * 30 * 4.5
+                            ) >= req.query.prod || req.query.prod >= 0)
+                        ||
+                        (
+                            (snapshot.val().products[i].datasheet.modules.power
+                                * snapshot.val().products[i].datasheet.modules.quantity)
+                            >= req.query.kwp || req.query.kwp >= 0))
                     && snapshot.val().products[i].tensao === req.query.tensao
                 ) {
                     return (snapshot.val().products[i]);

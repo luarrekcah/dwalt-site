@@ -15,5 +15,5 @@ try {
   const app = initializeApp(firebaseConfig);
   console.log('Connected to Firebase Database')
 } catch (error) {
-  console.log('Failed to Connect: ', error);
+  console.error(error);
 }

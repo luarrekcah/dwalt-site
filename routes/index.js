@@ -29,7 +29,7 @@ router.get("/sitemap.xml", function (req, res, next) {
   res.send(xml);
 });
 
-router.get("/mediakit", function (req, res, next) {
+router.get("/mediakit.rar", function (req, res, next) {
   res.send(fs.readFileSync(__dirname + '/../public/mediaKit.rar'));
 });
 

@@ -1,20 +1,17 @@
 const express = require("express"),
     router = express.Router(),
     { getDatabase, ref, onValue } = require("@firebase/database");
-
 let logMessage = {
     content: null,
     type: null,
     icon: null
 };
-
 const objetoVazio = (obj) => {
     for (var prop in obj) {
         if (obj.hasOwnProperty(prop)) return false;
     }
     return true;
 }
-
 router.get("/", (req, res) => {
     const db = getDatabase();
     const dataWebSite = ref(db, "dataWebSite");
@@ -22,25 +19,37 @@ router.get("/", (req, res) => {
         let products = [];
         if (!objetoVazio(req.query)) {
             products = snapshot.val().products.filter((item, i) => {
-                if (
-                    snapshot.val().products[i].datasheet.typeInver === req.query.typeInver
-                    && snapshot.val().products[i].datasheet.brandInverter === req.query.inversor
-                    && snapshot.val().products[i].datasheet.brandModule === req.query.placa
-                    && (
-                        (
-                            (
-                                (snapshot.val().products[i].datasheet.modules.power
-                                    * snapshot.val().products[i].datasheet.modules.quantity)
-                                * 30 * 4.5
-                            ) >= req.query.prod || req.query.prod >= 0)
-                        ||
-                        (
-                            (snapshot.val().products[i].datasheet.modules.power
-                                * snapshot.val().products[i].datasheet.modules.quantity)
-                            >= req.query.kwp || req.query.kwp >= 0))
-                    && snapshot.val().products[i].tensao === req.query.tensao
-                ) {
-                    return (snapshot.val().products[i]);
+                const query = req.query;
+                let searchType;
+                console.log(query); //log enquanto está em desenvolvimento
+                if (query.prod) {
+                    searchType = 'prod';
+                } else if (query.kwp) {
+                    searchType = 'kwp';
+                } else {
+                    searchType = 'none';
+                }
+                const kwp = ((item.datasheet.modules.power / 1000).toFixed(2)
+                    * item.datasheet.modules.quantity),
+                    prodkW = kwp * 30 * 4.5;
+                switch (searchType) {
+                    case 'prod':
+                        if (prodkW >= query.prod
+                            && item.datasheet.type === req.typeInver
+                            && item.datasheet.inverter.brand === req.inversor
+                            && item.datasheet.modules.brand === req.placa
+                        ) {
+                            return item;
+                        }
+                        break;
+                    case 'kwp':
+                        //caso n houver kw
+                        break;
+                    case 'none':
+                        //caso n houver nada
+                        break;
+                    default:
+                        break;
                 }
             });
             if (products.length !== 0) {

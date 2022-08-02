@@ -1,3 +1,5 @@
+const { querystring } = require("@firebase/util");
+
 const express = require("express"),
     router = express.Router(),
     { getDatabase, ref, onValue } = require("@firebase/database");
@@ -22,9 +24,9 @@ router.get("/", (req, res) => {
                 const query = req.query;
                 let searchType;
                 console.log(query); //log enquanto está em desenvolvimento
-                if (query.prod) {
+                if (query.prod || query.prod !== "0") {
                     searchType = 'prod';
-                } else if (query.kwp) {
+                } else if (query.kwp || query.kwp !== "0") {
                     searchType = 'kwp';
                 } else {
                     searchType = 'none';
@@ -43,12 +45,16 @@ router.get("/", (req, res) => {
                         }
                         break;
                     case 'kwp':
-                        //caso n houver kw
+                        if (kwp >= query.kwp
+                            && item.datasheet.type === req.typeInver
+                            && item.datasheet.inverter.brand === req.inversor
+                            && item.datasheet.modules.brand === req.placa
+                        ) {
+                            return item;
+                        }
                         break;
                     case 'none':
-                        //caso n houver nada
-                        break;
-                    default:
+                        return item;
                         break;
                 }
             });
@@ -67,6 +73,11 @@ router.get("/", (req, res) => {
             }
         } else {
             products = snapshot.val().products;
+            logMessage = {
+                content: null,
+                type: null,
+                icon: null
+            }
         }
         const data = {
             dbData: snapshot.val(),

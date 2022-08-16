@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <title>
@@ -24,8 +25,10 @@
   <script>
     moment.locale('pt-br');   
   </script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
-  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin="" />
+
   <link rel="stylesheet" type="text/css" href="/plugins/notifIt/notifIt.css">
   <meta name="keywords" content="energia solar, kit energia solar, placa de energia solar, energia solar residencial
   energia solar fotovoltaica, o que é energia solar, energia solar preço, energia solar vantagens e desvantagens
@@ -48,6 +51,15 @@
 <body>
   <div class="body-inner">
     <div id="top-bar" class="top-bar">
+      <div class="top-banner-promos">
+        <a href="link" aria-label="Top-Banner">
+          <figure><img style="max-width: 100%;
+            height: auto; margin-top: -6px;" alt="Promoção"
+              title="Promoção" width="1920" height="88"
+              src="/images/promo-banner/banner-example.jpg">
+          </figure>
+        </a>
+      </div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-8">
@@ -73,7 +85,7 @@
         </div>
       </div>
     </div>
-    <header id="header" class="header-one" >
+    <header id="header" class="header-one">
       <div class="bg-white">
         <div class="container">
           <div class="logo-area">
@@ -213,24 +225,26 @@
       </script>
       <% } %>
 
-      
-<!-- Modal -->
-<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document" >
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="searchModalLabel">Pesquisar no site</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="z-index: 999;">
-         <form action="/pesquisa" method="get">
-          <input type="text" class="form-control" name="q" aria-describedby="searchHelp" placeholder="Gerador..." required>
-          <hr>
-          <button style="width: 100%;" type="submit" class="btn btn-primary">Pesquisar</button>
-         </form>
-      </div>
-    </div>
-  </div>
-</div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Pesquisar no site</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="z-index: 999;">
+                <form action="/pesquisa" method="get">
+                  <input type="text" class="form-control" name="q" aria-describedby="searchHelp"
+                    placeholder="Gerador..." required>
+                  <hr>
+                  <button style="width: 100%;" type="submit" class="btn btn-primary">Pesquisar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>

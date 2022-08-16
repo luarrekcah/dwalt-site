@@ -15,6 +15,12 @@ const indexRouter = require("./routes/index"),
   createCheckoutSessionRouter = require("./routes/stripe-payment/create-checkout-session"),
   webhookRouter = require("./routes/stripe-payment/webhook");
 
+  const authenticationMiddleware = (req, res, next) => {
+    if (req.isAuthenticated())  
+        return next();
+    res.redirect("/usuario/login");
+  };
+
 module.exports = (app) => {
   app.use("/", indexRouter);
   app.use("/projetos", projectsRouter);

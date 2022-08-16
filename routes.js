@@ -15,8 +15,6 @@ const indexRouter = require("./routes/index"),
   createCheckoutSessionRouter = require("./routes/stripe-payment/create-checkout-session"),
   webhookRouter = require("./routes/stripe-payment/webhook");
 
-require('./listener');
-
 module.exports = (app) => {
   app.use("/", indexRouter);
   app.use("/projetos", projectsRouter);

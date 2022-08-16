@@ -83,9 +83,13 @@
               </li>
             </ul>
             <ul class="list-unstyled">
-              <li>Olá Fulano! | </li>
-              <li>ADMINISTRADOR | </li>
-              <li><a href="/usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
+              <% if(user) { %>
+                <li>Olá Fulano! | </li>
+                <li>ADMINISTRADOR | </li>
+                <li><a href="/usuario/conta">Minha Conta</a> | <a href="/usuario/logout">LogOut</a></li>
+                <% } else { %>
+                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login">Registrar</a></li>
+                  <% } %>
             </ul>
           </div>
         </div>

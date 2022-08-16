@@ -19,7 +19,8 @@ router.get("/login", (req, res) => {
         content: null,
         type: null,
         icon: null,
-      }
+      },
+      user: req.user
     }; res.render("pages/user/login", data);
   });
 });

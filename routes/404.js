@@ -17,7 +17,8 @@ router.get("/", (req, res) => {
         content: "Página não encontrada, verifique o link!",
         type: "error",
         icon: null,
-      }
+      },
+      user: req.user
     }; res.render("404", data);
   });
 });

@@ -20,7 +20,8 @@ router.get("/", (req, res) => {
         desc: "Conheça nossa super equipe, a qual trabalha 24h para melhor lhe atender e entregar projetos impecáveis.",
         banner: "/images/ogimages/staffs.jpg",
       },
-      logMessage
+      logMessage,
+      user: req.user
     }; res.render("pages/staffs", data);
   });
 });

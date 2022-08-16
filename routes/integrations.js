@@ -17,7 +17,8 @@ router.get("/banco-bv", (req, res) => {
         content: null,
         type: null,
         icon: null,
-      }
+      },
+      user: req.user
     }; res.render("pages/integrations/bancobv", data);
   });
 });

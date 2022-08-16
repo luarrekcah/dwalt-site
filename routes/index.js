@@ -19,8 +19,10 @@ router.get("/", (req, res) => {
         content: "Seja bem vindo!",
         type: "info",
         icon: null,
-      }
-    }; res.render("pages/index", data);
+      },
+      user: req.user
+    };
+    res.render("pages/index", data);
   });
 });
 

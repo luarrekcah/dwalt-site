@@ -88,6 +88,7 @@ router.get("/", (req, res) => {
                 banner: "/images/ogimages/products.jpg",
             },
             logMessage,
+            user: req.user
         };
         res.render("pages/store/allProducts", data);
     });

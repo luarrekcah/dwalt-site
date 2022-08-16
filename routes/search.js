@@ -52,7 +52,8 @@ router.get("/", (req, res, next) => {
         banner: "/images/ogimages/services.jpg",
       },
       logMessage,
-      results
+      results,
+      user: req.user
     };
     res.render("pages/search", data);
   });

@@ -18,7 +18,8 @@ router.get("/", (req, res) => {
         content: "Se inscreva e seja notificado em novos posts",
         type: "info",
         icon: null,
-      }
+      },
+      user: req.user
     }; res.render("pages/blog", data);
   });
 });

@@ -6,6 +6,8 @@ const express = require("express"),
 
 const passportGoogle = require("../auth/google");
 
+const { authenticationMiddleware } = require("./JS/middlewares")
+
 router.get("/login", (req, res) => {
   const db = getDatabase();
   const dataWebSite = ref(db, "dataWebSite");
@@ -30,6 +32,34 @@ router.get("/login", (req, res) => {
     else data.message = null
 
     res.render("pages/user/login", data);
+  }, {
+    onlyOnce: true
+  });
+});
+
+router.get("/conta", (req, res, next) => {
+  authenticationMiddleware(req, res, next);
+  const db = getDatabase();
+  const dataWebSite = ref(db, "dataWebSite");
+  onValue(dataWebSite, (snapshot) => {
+    const data = {
+      dbData: snapshot.val(),
+      og: {
+        title: "Minha Conta",
+        desc: "Dashboard integrador",
+        banner: "",
+      },
+      logMessage: {
+        content: null,
+        type: null,
+        icon: null,
+      },
+      user: req.user
+    };
+
+    res.render("pages/user/myaccount", data);
+  }, {
+    onlyOnce: true
   });
 });
 

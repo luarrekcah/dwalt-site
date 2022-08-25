@@ -11,8 +11,8 @@ module.exports = (passport) => {
   onValue(users, (snapshot) => {
     const users = snapshot.val();
 
-    const findUser = (username) => {
-      return users.find((item) => item.username === username);
+    const findUser = (email) => {
+      return users.find((item) => item.email === email);
     };
 
     const findUserById = (id) => {
@@ -35,10 +35,10 @@ module.exports = (passport) => {
 
     passport.use(
       new localStrategy(
-        { usernameField: "username", passwordField: "password" },
-        (username, password, done) => {
+        { usernameField: "email", passwordField: "password" },
+        (email, password, done) => {
           try {
-            const user = findUser(username);
+            const user = findUser(email);
             if (!user) return done(null, false);
 
             const isValid = bcrypt.compareSync(password, user.password);

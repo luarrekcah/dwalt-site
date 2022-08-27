@@ -84,11 +84,13 @@
             </ul>
             <ul class="list-unstyled">
               <% if(user) { %>
-                <li>Olá<%=user.username === undefined ? '' : " " + user.username%>! | </li>
-                <li>ADMINISTRADOR |</li>
+                <li>Olá<%=user.username===undefined ? '' : " " + user.username%>! | </li>
+                <li>
+                  <%=user.function===undefined ? 'ADM' : " " + user.function%> |
+                </li>
                 <li><a href="/usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
                 <% } else { %>
-                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login">Registrar</a></li>
+                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login" style="color:#3266af;; font-weight: 700;">Seja Revendedor D Walt</a></li>
                   <% } %>
             </ul>
           </div>

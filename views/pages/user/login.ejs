@@ -21,8 +21,10 @@
                         </div>
                         <div class="form-group">
                             <label for="password_log">Senha</label>
-                            <input name="password" type="password" class="form-control" id="password_log"
-                                placeholder="*****" required>
+                            <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!"
+                                name="password" type="password" class="form-control" id="password_log"
+                                placeholder="********" required>
                         </div>
                         <div>
                             <% if(message) { %>
@@ -53,7 +55,8 @@
                             <label for="repeatPassword">Repetir senha</label>
                             <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                 title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!"
-                                name="confPass" class="form-control" id="repeatPassword" placeholder="********" required>
+                                name="confPass" class="form-control" id="repeatPassword" placeholder="********"
+                                required>
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" required>

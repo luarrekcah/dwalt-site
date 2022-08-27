@@ -63,7 +63,6 @@ router.get("/conta", (req, res, next) => {
   });
 });
 
-
 router.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) { return next(err); }
@@ -124,7 +123,12 @@ router.post("/registrar", (req, res) => {
 
     allUsers.push(user);
     set(ref(db, "users"), allUsers);
-    return res.redirect("login");
+
+    /*
+    Add user to database, and redirect the same to login
+    page and show the message: "User Registered, enter your login to continue".
+    */
+    return res.redirect("/login");
   }, {
     onlyOnce: true
   });

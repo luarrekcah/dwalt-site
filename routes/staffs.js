@@ -41,7 +41,8 @@ router.get("/:id", (req, res, next) => {
         desc: findById().desc,
         banner: findById().media.src,
       },
-      logMessage
+      logMessage,
+      user: req.user
     };
     res.render("pages/staffs/details", data);
   });

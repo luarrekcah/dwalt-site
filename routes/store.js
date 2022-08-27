@@ -108,7 +108,8 @@ router.get("/:id", (req, res) => {
                 banner: product === undefined ? 'None' : product.media,
             },
             product,
-            logMessage
+            logMessage,
+            user: req.user
         };
         res.render("pages/store/productDetails", data);
     });

@@ -43,7 +43,8 @@ router.get("/:id", (req, res, next) => {
         content: null,
         type: null,
         icon: null,
-      }
+      },
+      user: req.user
     };
       res.render("pages/blog/details", data);
   });

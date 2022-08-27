@@ -50,7 +50,8 @@ router.get("/politica", function (req, res, next) {
         content: "Em caso de dúvidas, entre em contato",
         type: "info",
         icon: null,
-      }
+      },
+      user: req.user
     };
     res.render("pages/legalConditions/politica", data);
   })
@@ -71,7 +72,8 @@ router.get("/termos", function (req, res, next) {
         content: "Em caso de dúvidas, entre em contato",
         type: "info",
         icon: null,
-      }
+      },
+      user: req.user
     };
     res.render("pages/legalConditions/termos", data);
   });
@@ -93,7 +95,8 @@ router.get("/faq", function (req, res, next) {
         content: "Entre em contato",
         type: "info",
         icon: null,
-      }
+      },
+      user: req.user
     };
     res.render("pages/faq", data);
   });
@@ -115,7 +118,8 @@ router.get("/contato", function (req, res, next) {
         content: null,
         type: "info",
         icon: null,
-      }
+      },
+      user: req.user
     };
     res.render("pages/contact", data);
   });

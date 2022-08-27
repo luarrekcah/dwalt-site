@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
   const db = getDatabase();
   const dataWebSite = ref(db, "dataWebSite");
   onValue(dataWebSite, (snapshot) => {
+    const user = req.user;
     const data = {
       dbData: snapshot.val(),
       og: {
@@ -16,7 +17,7 @@ router.get("/", (req, res) => {
         banner: "/images/ogimages/index.jpg",
       },
       logMessage: {
-        content: "Seja bem vindo!",
+        content: `Seja bem vindo ${user === undefined ? '' : user.username}!`,
         type: "info",
         icon: null,
       },

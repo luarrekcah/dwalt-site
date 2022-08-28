@@ -155,7 +155,7 @@ router.post("/registrar", (req, res) => {
     allUsers.push(user);
     set(ref(db, "users"), allUsers);
 
-    return res.redirect("/login?message=registered");
+    return res.redirect("login?message=registered");
   }, {
     onlyOnce: true
   });

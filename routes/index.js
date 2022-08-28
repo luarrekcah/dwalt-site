@@ -17,12 +17,19 @@ router.get("/", (req, res) => {
         banner: "/images/ogimages/index.jpg",
       },
       logMessage: {
-        content: `Seja bem vindo ${user === undefined ? '' : user.username}!`,
-        type: "info",
+        content: null,
+        type: null,
         icon: null,
       },
       user: req.user
     };
+    if(user) {
+      data.logMessage = {
+        content: `Seja bem vindo ${user.documents.name}!`,
+        type: "info",
+        icon: null,
+      }
+    }
     res.render("pages/index", data);
   });
 });

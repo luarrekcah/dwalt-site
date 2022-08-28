@@ -27,7 +27,7 @@
                                 placeholder="********" required>
                         </div>
                         <div>
-                            <% if(message) { %>
+                            <% if(logMessage.content==='credentials' ) { %>
                                 <p style="color: red;">Verifique suas credenciais!</p>
                                 <% } %>
                         </div>
@@ -64,7 +64,7 @@
                                     href="">Política de Privacidade</a>, <a href="">Termos de Uso</a> e <a href="">Boas
                                     práticas do integrador</a></label>
                         </div>
-                        <% if(message==='passwordsdontmatch' ) { %>
+                        <% if(logMessage.content==='passwordsdontmatch' ) { %>
                             <p style="color: red;">As senhas não são iguais!</p>
                             <% } %>
                                 <div class="g-recaptcha" data-sitekey="6LdVlH8hAAAAALRFxFNEeXeDHzeHs9OdMDoa7Rkd"></div>

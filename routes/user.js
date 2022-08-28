@@ -27,9 +27,31 @@ router.get("/login", (req, res) => {
       user: req.user
     };
 
-    if (req.query.fail)
-      data.message = "Usuário ou senha inválidos"
-    else data.message = null
+
+    switch (req.query.message) {
+      case 'credentials':
+        data.logMessage.content = "Usuário ou senha inválidos"
+        data.logMessage.type = 'error';
+        break;
+      case 'unknown':
+        data.logMessage.content = "Erro Desconhecido"
+        data.logMessage.type = 'error';
+        break;
+      case 'passwordsdontmatch':
+        data.logMessage.content = "As senhas não coincidem"
+        data.logMessage.type = 'error';
+        break;
+      case 'userexists':
+        data.logMessage.content = "Esse usuário já existe"
+        data.logMessage.type = 'error';
+        break;
+      case 'registered':
+        data.logMessage.content = "Usuário registrado, faça login!"
+        data.logMessage.type = 'success';
+        break;
+    }
+
+
 
     res.render("pages/user/login", data);
   }, {
@@ -79,7 +101,7 @@ router.get(
 
 router.get(
   "/google/callback",
-  passportGoogle.authenticate("google", { failureRedirect: "/usuario/login" }),
+  passportGoogle.authenticate("google", { failureRedirect: "/usuario/login?fail=true&message=unknown" }),
   (req, res) => {
     res.redirect("/");
   }
@@ -89,14 +111,14 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "login?fail=true",
+    failureRedirect: "login?fail=true&message=credentials",
   })
 );
 
 router.post("/registrar", (req, res) => {
   const data = req.body;
   console.log(data);
-  if (data.password !== data.confPass) return res.redirect('login?fail=true&error=passwordsdontmatch');
+  if (data.password !== data.confPass) return res.redirect('login?fail=true&message=passwordsdontmatch');
   const db = getDatabase();
   const users = ref(db, "users");
   onValue(users, async (snapshot) => {
@@ -112,6 +134,15 @@ router.post("/registrar", (req, res) => {
       _id: data.email,
       email: data.email,
       password: bcrypt.hashSync(data.password),
+      verified: false,
+      documents: {
+        name: "",
+        cpfOrCnpj: "",
+      },
+      contact: {
+        number: ""
+      },
+      contractURL: ""
     };
 
     const checkUnique = () => {
@@ -119,16 +150,12 @@ router.post("/registrar", (req, res) => {
     };
 
     if (checkUnique())
-      return res.redirect('login?fail=true&error=userexists');
+      return res.redirect('login?fail=true&message=userexists');
 
     allUsers.push(user);
     set(ref(db, "users"), allUsers);
 
-    /*
-    Add user to database, and redirect the same to login
-    page and show the message: "User Registered, enter your login to continue".
-    */
-    return res.redirect("/login");
+    return res.redirect("/login?message=registered");
   }, {
     onlyOnce: true
   });

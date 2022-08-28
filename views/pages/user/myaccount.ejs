@@ -4,10 +4,8 @@
             <div class="row">
                 <h3 class="border-title border-left mar-t0">Minha Conta</h3>
                 | Em Desenvolvimento
-
                 <div class="accordion accordion-group accordion-classic" id="construction-accordion"
                     style="width: 100%;">
-
                     <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading0">
                             <h2 class="mb-0">
@@ -21,10 +19,32 @@
                             data-parent="#construction-accordion">
                             <div class="card-body">
 
+                                <form method="POST">
+                                    <div class="form-group">
+                                        <label>Nome Completo</label>
+                                        <input type="text" name="name" class="form-control" aria-describedby="nameHelp"
+                                            placeholder="" required="">
+                                        <small id="textHelp" class="form-text text-muted">
+                                            Nós nunca compartilhamos suas informações.
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>CPF/CNPJ</label>
+                                        <input name="cpf" type="text" class="form-control" placeholder="xxx.xxx.xxx-xx"
+                                            required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Celular</label>
+                                        <input name="celular" type="text" class="form-control"
+                                            placeholder="+55 (XX) X.XXXX-XXXX" required="">
+                                    </div>
+                                    <input name="id" type="hidden" class="form-control" value="<%=user.id%>">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading1">
                             <h2 class="mb-0">
@@ -41,7 +61,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading6">
                             <h2 class="mb-0">
@@ -58,7 +77,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading2">
                             <h2 class="mb-0">
@@ -75,7 +93,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading3">
                             <h2 class="mb-0">
@@ -109,23 +126,6 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header p-0 bg-transparent" id="heading5">
-                            <h2 class="mb-0">
-                                <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
-                                    data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                                    Controle de Equipe
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapse5" class="collapse" aria-labelledby="heading5"
-                            data-parent="#construction-accordion">
-                            <div class="card-body">
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
                         <div class="card-header p-0 bg-transparent" id="heading6">
                             <h2 class="mb-0">
                                 <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse"
@@ -141,7 +141,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

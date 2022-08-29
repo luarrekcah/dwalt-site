@@ -20,11 +20,11 @@ passport.use(
         }
 
         const findUser = (email) => {
-          return users.find((item) => item.email === email);
+          return allUsers.find((item) => item.email === email);
         };
     
         const findUserById = (id) => {
-          return users.find((item) => item._id === id);
+          return allUsers.find((item) => item._id === id);
         };
 
         passport.serializeUser((user, done) => {
@@ -43,7 +43,7 @@ passport.use(
 
         const user = {
           _id: profile.id,
-          email: data.email,
+          email: '',//data.email, // corrigir aqui, nao existe data, procure uma forma de encontrar o email
           password: '',
           verified: false,
           documents: {
@@ -76,6 +76,8 @@ passport.use(
             }
           });
         }
+      },  {
+        onlyOnce: true
       });
     }
   )

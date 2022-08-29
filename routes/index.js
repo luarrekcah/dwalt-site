@@ -25,7 +25,7 @@ router.get("/", (req, res) => {
     };
     if(user) {
       data.logMessage = {
-        content: `Seja bem vindo ${user.documents.name}!`,
+        content: `Seja bem vindo ${user.documents.name.split(" ")[0]}!`,
         type: "info",
         icon: null,
       }

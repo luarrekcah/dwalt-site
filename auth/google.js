@@ -7,24 +7,30 @@ passport.use(
     {
       clientID: process.env.googleClientId,
       clientSecret: process.env.googleClientSecret,
-      callbackURL: process.env.url + "/auth/google/callback",
+      callbackURL: "https://www.dlwalt.com/usuario/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
       const db = getDatabase();
-      const users = ref(db, "usersWebsite");
+      const users = ref(db, "users");
       onValue(users, (snapshot) => {
         let allUsers = snapshot.val();
         if (allUsers == null) {
           allUsers = [];
         }
+
+        const findUser = (email) => {
+          return users.find((item) => item.email === email);
+        };
+    
         const findUserById = (id) => {
-          return allUsers.find((item) => item.userid === id);
+          return users.find((item) => item._id === id);
         };
 
         passport.serializeUser((user, done) => {
-          done(null, user.userid);
+          done(null, user._id);
         });
-
+    
         passport.deserializeUser((id, done) => {
           try {
             const user = findUserById(id);
@@ -50,7 +56,7 @@ passport.use(
           contractURL: ""
         };
 
-        if (findUserById(user.userid)) {
+        if (findUserById(user._id)) {
           try {
             return done(null, user);
           } catch (err) {
@@ -60,7 +66,7 @@ passport.use(
         } else {
           allUsers.push(user);
 
-          set(ref(db, "usersWebsite"), allUsers).then(() => {
+          set(ref(db, "users"), allUsers).then(() => {
             console.log("Registro atualizado");
             try {
               return done(null, user);

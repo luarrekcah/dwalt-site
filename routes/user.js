@@ -85,6 +85,33 @@ router.get("/conta", (req, res, next) => {
   });
 });
 
+router.post("/conta", (req, res) => {
+  console.log(req.body);
+  switch (req.body.type) {
+    case 'comprgstr':
+      const db = getDatabase();
+      const users = ref(db, "users");
+      onValue(users, (snapshot) => {
+        let allUsers = snapshot.val();
+        const newUsers = allUsers.map((item) => {
+          if (item._id === req.body.id) {
+            item.documents.name = req.body.name
+            item.documents.cpfOrCnpj = req.body.cpf
+            item.contact.number = req.body.celular
+          }
+          return item;
+        });
+        console.log(newUsers);
+        set(ref(db, "users"), newUsers).then(() => {
+          res.redirect("conta?message=userupdated")
+        })
+      }, {
+        onlyOnce: true
+      });
+      break;
+  }
+});
+
 router.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) { return next(err); }

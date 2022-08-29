@@ -36,10 +36,18 @@ passport.use(
         });
 
         const user = {
-          userid: profile.id,
-          name: profile.name.givenName,
-          fullName: profile.displayName,
-          photo: profile.photos[0].value,
+          _id: profile.id,
+          email: data.email,
+          password: '',
+          verified: false,
+          documents: {
+            name: profile.displayName,
+            cpfOrCnpj: "",
+          },
+          contact: {
+            number: ""
+          },
+          contractURL: ""
         };
 
         if (findUserById(user.userid)) {

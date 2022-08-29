@@ -45,6 +45,10 @@ router.get("/login", (req, res) => {
         data.logMessage.content = "Esse usuário já existe"
         data.logMessage.type = 'error';
         break;
+      case 'errorrecaptcha':
+        data.logMessage.content = "Verifique o Captcha!"
+        data.logMessage.type = 'error';
+        break;
       case 'registered':
         data.logMessage.content = "Usuário registrado, faça login!"
         data.logMessage.type = 'success';
@@ -146,6 +150,7 @@ router.post("/registrar", (req, res) => {
   const data = req.body;
   console.log(data);
   if (data.password !== data.confPass) return res.redirect('login?fail=true&message=passwordsdontmatch');
+  if (data['g-recaptcha-response'] === '') return res.redirect('login?fail=true&message=errorrecaptcha');
   const db = getDatabase();
   const users = ref(db, "users");
   onValue(users, async (snapshot) => {

@@ -56,7 +56,7 @@ passport.use(
           contractURL: ""
         };
 
-        if (findUserById(user._id)) {
+        if (findUser(user.email)) {
           try {
             return done(null, user);
           } catch (err) {

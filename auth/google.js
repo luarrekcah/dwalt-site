@@ -43,7 +43,7 @@ passport.use(
         console.log(profile);
         const user = {
           _id: profile.id,
-          email: profile.emails[0].value,//data.email, // corrigir aqui, nao existe data, procure uma forma de encontrar o email
+          email: profile.emails[0].value,
           password: '',
           verified: false,
           documents: {

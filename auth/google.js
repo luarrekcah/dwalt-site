@@ -39,8 +39,8 @@ passport.use(
             console.log(err);
             return done(err, null);
           }
-        });
-        console.log(profile);
+        });  
+        
         const user = {
           _id: profile.id,
           email: profile.emails[0].value,
@@ -76,9 +76,9 @@ passport.use(
             }
           });
         }
-      },  {
+      }/*,  {
         onlyOnce: true
-      });
+      }*/);
     }
   )
 );

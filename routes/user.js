@@ -27,7 +27,6 @@ router.get("/login", (req, res) => {
       user: req.user
     };
 
-
     switch (req.query.message) {
       case 'credentials':
         data.logMessage.content = "Usuário ou senha inválidos"
@@ -54,8 +53,6 @@ router.get("/login", (req, res) => {
         data.logMessage.type = 'success';
         break;
     }
-
-
 
     res.render("pages/user/login", data);
   }, {
@@ -84,8 +81,6 @@ router.get("/conta", (req, res, next) => {
     };
 
     res.render("pages/user/myaccount", data);
-  }, {
-    onlyOnce: true
   });
 });
 
@@ -116,7 +111,7 @@ router.post("/conta", (req, res) => {
   }
 });
 
-router.get("/logout", (req, res) => {
+router.get("/logout", (req, res, next) => {
   req.logout((err) => {
     if (err) { return next(err); }
     res.redirect('/');

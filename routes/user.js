@@ -121,7 +121,7 @@ router.get("/logout", (req, res, next) => {
 router.get(
   "/google",
   passportGoogle.authenticate("google", {
-    scope: ["https://www.googleapis.com/auth/plus.login"],
+    scope: ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email"],
   })
 );
 

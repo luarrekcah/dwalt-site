@@ -43,10 +43,25 @@
                     <p>
                         <%=product.desc%>
                     </p>
-                    <h3 class="column-title mrt-0" style="color:red;">
-                        R$<%=product.value%>
-                            <p style="display: inline;">Instalação Não Inclusa</p>
-                    </h3>
+                    <% if(user) { %>
+                        <h3 class="column-title mrt-0" style="color:#009eef;">
+                            R$<%=product.valueInitial%>
+                                <p style="display: inline;">Instalação Não Inclusa</p>
+                        </h3>
+                        <h3 class="column-title mrt-0" style="color:red;">
+                            <span class="badge badge-danger">VENDA DIRETA</span>
+                            R$<%=product.value%>
+                                <p>Instalação Não Inclusa</p>
+                                <i style="color:rgb(0, 0, 0); font-size: small;">Preço sugerido ao consumidor final</i>
+                        </h3>
+                        
+                    <% } else { %>
+                        <h3 class="column-title mrt-0" style="color:red;">
+                            R$<%=product.value%>
+                                <p style="display: inline;">Instalação Não Inclusa</p>
+                        </h3>
+                    <% } %> 
+                    
                     <% if(logMessage.content) { %>
 
                         <a class="btn btn-primary" style="width: 100%">Enviado</a>

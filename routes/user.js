@@ -79,7 +79,12 @@ router.get("/conta", (req, res, next) => {
       },
       user: req.user
     };
-
+    switch (req.query.message) {
+      case 'userupdated':
+        data.logMessage.content = "Usuário Atualizado!"
+        data.logMessage.type = 'success';
+        break;
+    }
     res.render("pages/user/myaccount", data);
   });
 });
@@ -150,13 +155,11 @@ router.post("/registrar", (req, res) => {
   const users = ref(db, "users");
   onValue(users, async (snapshot) => {
     let allUsers;
-
     if (snapshot.val() === null) {
       allUsers = [];
     } else {
       allUsers = snapshot.val();
     };
-
     const user = {
       _id: data.email,
       email: data.email,

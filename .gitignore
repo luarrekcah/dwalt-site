@@ -8,3 +8,5 @@ ngrok.exe
 yarn-error.log
 
 .env
+
+bases.js

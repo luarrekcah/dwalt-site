@@ -1,179 +1,185 @@
 <style>
-    .launch {
-      height: 50px;
-    }
-  
-    .close {
-      font-size: 21px;
-      cursor: pointer;
-    }
-  
-    .nav-tabs {
-      border: none !important;
-    }
-  
-    .nav-tabs .nav-link.active {
-      color: #495057;
-      background-color: #fff;
-      border-color: #ffffff #ffffff #fff;
-      border-top: 3px solid blue !important;
-    }
-  
-    .nav-tabs .nav-link {
-      margin-bottom: -1px;
-      border: 1px solid transparent;
-      border-top-left-radius: 0rem;
-      border-top-right-radius: 0rem;
-      border-top: 3px solid #eee;
-      font-size: 20px;
-    }
-  
-    .nav-tabs .nav-link:hover {
-      border-color: #e9ecef #ffffff #ffffff;
-    }
-  
-    .nav-tabs {
-      display: table !important;
-      width: 100%;
-    }
-  
-    .nav-item {
-      display: table-cell;
-    }
-  
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  </style>
-  
-  <div
-    class="modal fade"
-    id="paymentType"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="paymentTypeLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <!--BODY-->
-          <div class="text-right">
-            <i class="fa fa-close close" data-dismiss="modal"></i>
-          </div>
-          <div class="tabs mt-3">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+  .launch {
+    height: 50px;
+  }
+
+  .close {
+    font-size: 21px;
+    cursor: pointer;
+  }
+
+  .nav-tabs {
+    border: none !important;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ffffff #ffffff #fff;
+    border-top: 3px solid blue !important;
+  }
+
+  .nav-tabs .nav-link {
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-top: 3px solid #eee;
+    font-size: 20px;
+  }
+
+  .nav-tabs .nav-link:hover {
+    border-color: #e9ecef #ffffff #ffffff;
+  }
+
+  .nav-tabs {
+    display: table !important;
+    width: 100%;
+  }
+
+  .nav-item {
+    display: table-cell;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+</style>
+
+<div class="modal fade" id="paymentType" tabindex="-1" role="dialog" aria-labelledby="paymentTypeLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <!--BODY-->
+        <div class="text-right">
+          <i class="fa fa-close close" data-dismiss="modal"></i>
+        </div>
+        <div class="tabs mt-3">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <a class="nav-link active" id="financiamento-tab" data-toggle="tab" href="#financiamento" role="tab"
+                aria-controls="financiamento" aria-selected="true">
+                <img src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/bancos.png?v=1645037574483"
+                  width="80" />
+              </a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a class="nav-link" id="visa-tab" data-toggle="tab" href="#visa" role="tab" aria-controls="visa"
+                aria-selected="true">
+                <img src="https://i.imgur.com/sB4jftM.png" width="80" />
+              </a>
+            </li>
+            <% if(user) { %>
               <li class="nav-item" role="presentation">
-                <a
-                  class="nav-link active"
-                  id="financiamento-tab"
-                  data-toggle="tab"
-                  href="#financiamento"
-                  role="tab"
-                  aria-controls="financiamento"
-                  aria-selected="true"
-                >
-                  <img
-                    src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/bancos.png?v=1645037574483"
-                    width="80"
-                  />
+                <a class="nav-link" id="venda-direta-tab" data-toggle="tab" href="#venda-direta" role="tab"
+                  aria-controls="venda-direta" aria-selected="true">
+                  <b>VENDA DIRETA</b>
                 </a>
               </li>
-              <li class="nav-item" role="presentation">
-                <a
-                  class="nav-link"
-                  id="visa-tab"
-                  data-toggle="tab"
-                  href="#visa"
-                  role="tab"
-                  aria-controls="visa"
-                  aria-selected="true"
-                >
-                  <img src="https://i.imgur.com/sB4jftM.png" width="80" />
-                </a>
-              </li>
-              <!-- <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> <img src="https://i.imgur.com/yK7EDD1.png" width="80"> </a> </li> -->
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="financiamento"
-                role="tabpanel"
-                aria-labelledby="financiamento-tab"
-              >
-                <div class="mt-5 mx-5">
-                  <div class="text-center">
-                    <h5>Financiamento</h5>
-                  </div>
-                  <div class="form mt-3">
-                    <h3 style="color: #337ab7"><%= product.resumedtitle %></h3>
-                    <h5><%= product.description %></h5>
-                    <hr />
-                    <h4 style="color: red">R$<%= product.value %></h4>
-                    <p>* entraremos em contato para uma compra com garantia</p>
-                    <div class="px-5 pay text-center">
-                      <button
-                        class="btn btn-success" style="width: 100%"
-                        data-toggle="modal"
-                        data-target="#enviarDados"
-                      >
-                        Preencher Dados
-                      </button>
-                    </div>
+              <% } %>
+                <!-- <li class="nav-item" role="presentation"> <a class="nav-link" id="paypal-tab" data-toggle="tab" href="#paypal" role="tab" aria-controls="paypal" aria-selected="false"> <img src="https://i.imgur.com/yK7EDD1.png" width="80"> </a> </li> -->
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="financiamento" role="tabpanel"
+              aria-labelledby="financiamento-tab">
+              <div class="mt-5 mx-5">
+                <div class="text-center">
+                  <h5>Financiamento</h5>
+                </div>
+                <div class="form mt-3">
+                  <h3 style="color: #337ab7">
+                    <%= product.resumedtitle %>
+                  </h3>
+                  <h5>
+                    <%= product.description %>
+                  </h5>
+                  <hr />
+                  <h4 style="color: red">R$<%= product.value %>
+                  </h4>
+                  <p>* entraremos em contato para uma compra com garantia</p>
+                  <div class="px-5 pay text-center">
+                    <button class="btn btn-success" style="width: 100%" data-toggle="modal" data-target="#enviarDados">
+                      Preencher Dados
+                    </button>
                   </div>
                 </div>
               </div>
-              <div
-                class="tab-pane fade show"
-                id="visa"
-                role="tabpanel"
-                aria-labelledby="visa-tab"
-              >
+            </div>
+            <div class="tab-pane fade show" id="visa" role="tabpanel" aria-labelledby="visa-tab">
+              <div class="mt-5 mx-5">
+                <div class="text-center">
+                  <h5>Cartão de Crédito e Boleto</h5>
+                </div>
+                <div class="form mt-3">
+                  <form action="/create-checkout-session" method="POST">
+                    <h3 style="color: #337ab7">
+                      <%= product.resumedtitle %>
+                    </h3>
+                    <h5>
+                      <%= product.description %>
+                    </h5>
+                    <hr />
+                    <h4 style="color: red">R$<%= product.value %>
+                    </h4>
+                    <p>* entraremos em contato para uma compra com garantia</p>
+                    <input style="display:none;" name="prodName" value="<%= product.resumedtitle%>" />
+                    <input style="display:none;" name="value" value="<%= product.value %>" />
+                    <button class="btn btn-success" type="submit" id="submit" style="width: 100%">Comprar</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <% if(user) { %>
+              <div class="tab-pane fade show" id="venda-direta" role="tabpanel" aria-labelledby="venda-direta-tab">
                 <div class="mt-5 mx-5">
                   <div class="text-center">
-                    <h5>Cartão de Crédito e Boleto</h5>
+                    <h5>Venda Direta (revenda)</h5>
                   </div>
                   <div class="form mt-3">
-                    <form action="/create-checkout-session" method="POST">
+                    <form action="/vendadireta" method="POST">
                       <h3 style="color: #337ab7">
                         <%= product.resumedtitle %>
                       </h3>
-                      <h5><%= product.description %></h5>
+                      <h5>
+                        <%= product.description %>
+                      </h5>
                       <hr />
-                      <h4 style="color: red">R$<%= product.value %></h4>
+                      <h5>Valor de Revenda:</h5>
+                      <h4 style="color: red">R$<%= product.value %>
+                      <h5>Valor Recomendado:</h5>
+                      <h4 style="color: red">R$<%= product.value %>
+                      </h4>
+                      
+                      <input style="display:none;" name="prodName" value="<%= product.resumedtitle%>" />
+                      <input style="display:none;" name="value" value="<%= product.value %>" />
+                      <input style="display:none;" name="integradorId" value="<%= user.id %>" />
+                      <hr/>
+                      <h5>CPF/CNPJ do seu cliente:</h5>
+                      <input type="number" class="form-control" name="cliente_CPF_CNPJ" aria-describedby="identificação" placeholder="CPF/CNPJ" required="">
+                      <p>* Lembre-se de registrar seu cliente em <a style="color: #337ab7;" href="/usuario/conta">"minha conta"</a></p>
+                      <hr>
+                      <button class="btn btn-success" type="submit" id="submit" style="width: 100%">Solicitar</button>
                       <p>* entraremos em contato para uma compra com garantia</p>
-                      <input style="display:none;" name="prodName" value="<%= product.resumedtitle%>"/>
-                      <input style="display:none;" name="value" value="<%= product.value %>"/>
-                      <button class="btn btn-success" type="submit" id="submit" style="width: 100%">Comprar</button>
                     </form>
                   </div>
                 </div>
               </div>
-              <!-- <div class="tab-pane fade" id="paypal" role="tabpanel" aria-labelledby="paypal-tab">
-                              <div class="mt-5 mx-5">
-                                  <div class="text-center">
-                                  <h5>Paypal</h5>
-                                  </div>
-                                  <div class="form mt-3">
-                                     <h3><%= product.resumedtitle %></h3>
-                                      <h5><%= product.description %></h5>
-                                      <h4>R$<%= product.value %></h4>
-                                      <div class="px-5 pay text-center"> <button class="btn btn-success" style="width: 100%">Comprar</button> </div>
-                                  </div>
-                              </div>
-                          </div>-->
-            </div>
+            <% } %>
+            
+
           </div>
-          <!--END BODY-->
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Fechar
-          </button>
-        </div>
+        <!--END BODY-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Fechar
+        </button>
       </div>
     </div>
   </div>
-  
+</div>

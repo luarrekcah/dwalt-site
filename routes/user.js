@@ -191,5 +191,34 @@ router.post("/registrar", (req, res) => {
   });
 });
 
+router.get("/registrarcliente", (req, res, next) => {
+  authenticationMiddleware(req, res, next);
+  const db = getDatabase();
+  const dataWebSite = ref(db, "dataWebSite");
+  onValue(dataWebSite, (snapshot) => {
+    const data = {
+      dbData: snapshot.val(),
+      og: {
+        title: "Registro de cliente",
+        desc: "Faça login para registrar",
+        banner: "",
+      },
+      logMessage: {
+        content: null,
+        type: null,
+        icon: null,
+      },
+      user: req.user
+    };
+    switch (req.query.message) {
+      case 'customeradded':
+        data.logMessage.content = "Usuário Adicionado!"
+        data.logMessage.type = 'success';
+        break;
+    }
+    res.render("pages/user/registercustomer", data);
+  });
+});
+
 
 module.exports = router;

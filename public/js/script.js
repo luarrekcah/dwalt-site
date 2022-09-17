@@ -308,8 +308,5 @@ jQuery(function ($) {
 			});
 		}
 		mediaPopup();
-
 	});
-
-
 });

@@ -1,0 +1,54 @@
+<%- include('../../partials/header.ejs') %>
+    <section id="main-container" class="main-container">
+        <div class="container">
+            <h3 class="border-title border-left mar-t0">Registrar Cliente</h3>
+            <h6>SELECIONE O TIPO:</h6>
+            <div class="row">
+                <div class="tabs mt-3" style="width: 100%;">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pFisica-tab" data-toggle="tab" href="#pFisica" role="tab"
+                                aria-controls="pFisica" aria-selected="true">
+                                <b>PESSOA FÍSICA</b>
+                            </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="pJuridica-tab" data-toggle="tab" href="#pJuridica" role="tab"
+                                aria-controls="pJuridica" aria-selected="true">
+                                <b>PESSOA JURÍDICA</b>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show" id="pFisica" role="tabpanel" aria-labelledby="pFisica-tab">
+                            <div class="mt-5 mx-5">
+                                <div class="text-center">
+                                    <h5>Registro de Pessoa Física</h5>
+                                </div>
+                                <div class="form mt-3">
+                                    <form action="/" method="POST">
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="pJuridica" role="tabpanel" aria-labelledby="pJuridica-tab">
+                            <div class="mt-5 mx-5">
+                                <div class="text-center">
+                                    <h5>Registro de Pessoa Jurídica</h5>
+                                </div>
+                                <div class="form mt-3">
+                                    <form action="/" method="POST">
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <%- include('../../partials/footer.ejs') %>

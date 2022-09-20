@@ -84,10 +84,15 @@ router.get("/conta", (req, res, next) => {
         data.logMessage.content = "Usuário Atualizado!"
         data.logMessage.type = 'success';
         break;
+      case 'cregistrado':
+        data.logMessage.content = "Cliente cadastrado"
+        data.logMessage.type = 'success';
+        break;
     }
     res.render("pages/user/myaccount", data);
   });
 });
+
 
 router.post("/conta", (req, res) => {
   console.log(req.body);
@@ -218,6 +223,11 @@ router.get("/registrarcliente", (req, res, next) => {
     }
     res.render("pages/user/registercustomer", data);
   });
+});
+
+router.post("/registrarcliente", (req, res, next) => {
+  console.log(req.body);
+  return res.redirect("/usuario/conta?message=cregistrado");
 });
 
 

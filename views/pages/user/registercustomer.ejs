@@ -38,8 +38,6 @@
                                                 <input type="date" name="nascDate" class="form-control" id="nascDate"
                                                     required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="compName">Nome completo conforme documento oficial</label>
                                                 <input type="text" name="compName" class="form-control" id="compName"
@@ -49,8 +47,6 @@
                                                 <label for="RG">RG</label>
                                                 <input type="text" name="RG" class="form-control" id="RG" required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="orgEmi">Orgão Emissor</label>
                                                 <input type="text" name="orgEmi" class="form-control" id="orgEmi"
@@ -63,8 +59,6 @@
                                                 <label for="cep">CEP DA UNIDADE CONSUMIDORA</label>
                                                 <input type="number" name="cep" class="form-control" id="cep" required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="estado">ESTADO DA UNIDADE CONSUMIDORA</label>
                                                 <input type="text" name="estado" class="form-control" id="estado"
@@ -75,8 +69,6 @@
                                                 <input type="text" name="cidade" class="form-control" id="cidade"
                                                     required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="endereco">ENDEREÇO DA UNIDADE CONSUMIDORA</label>
                                                 <input type="text" name="endereco" class="form-control" id="endereco"
@@ -87,8 +79,6 @@
                                                 <input type="text" name="bairro" class="form-control" id="bairro"
                                                     required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="nEnd">NÚMERO DE ENDEREÇO DA UNIDADE CONSUMIDORA</label>
                                                 <input type="number" name="nEnd" class="form-control" id="nEnd"
@@ -99,16 +89,14 @@
                                                     CONSUMIDORA</label>
                                                 <input type="text" name="compl" class="form-control" id="compl">
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="custom-file">
-                                                <input type="file" onchange="previewFile()"
-                                                    class="custom-file-input" id="comprovanteEnd" required>
+                                                <input type="file" onchange="previewFile()" class="custom-file-input"
+                                                    id="comprovanteEnd" required>
                                                 <label class="custom-file-label" id="labelEnd" for="comprovanteEnd"
                                                     data-browse="Procurar arquivo">Comprovante de
                                                     Endereço: CONTA DE LUZ DA UNIDADE CONSUMIDORA</label>
-                                                    <input type="text" name="comprovanteEnd" class="form-control" id="compbase64"
-                                                    style="display: none;">
+                                                <input type="text" name="comprovanteEnd" class="form-control"
+                                                    id="compbase64" style="display: none;">
                                             </div>
                                         </div>
                                         <br>
@@ -126,8 +114,6 @@
                                                 <input type="text" name="telefoneCelular" class="form-control"
                                                     id="telefoneCelular" required>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="email">E-Mail</label>
                                                 <input type="text" name="email" class="form-control" id="email"
@@ -150,8 +136,137 @@
                                     <h5>Registro de Pessoa Jurídica</h5>
                                 </div>
                                 <div class="form mt-3">
-                                    <form action="/" method="POST">
-
+                                    <form method="POST">
+                                        <h5>Dados Básicos</h5>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="cnpj">CNPJ</label>
+                                                <input type="text" onchange="getCnpj()" name="cnpj" class="form-control"
+                                                    id="cnpj" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="razaosocial">Razão Social</label>
+                                                <input type="text" name="razaosocial" class="form-control"
+                                                    id="razaosocial" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="nomeF">Nome Fantasia</label>
+                                                <input type="text" name="nomeF" class="form-control" id="nomeF"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inscEstadual">Inscrição Estadual</label>
+                                                <input type="text" name="inscEstadual" class="form-control"
+                                                    id="inscEstadual" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cnae">CNAE</label>
+                                                <input type="text" name="cnae" class="form-control" id="cnae" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="fundData">Fundação</label>
+                                                <input type="date" name="fundData" class="form-control" id="fundData"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="qtdFiliais">Quantidade de Filiais</label>
+                                                <input type="text" name="qtdFiliais" class="form-control"
+                                                    id="qtdFiliais" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="ramoAtividade">Ramo Atividade</label>
+                                                <input type="text" placeholder="Agência de Viagens" name="ramoAtividade"
+                                                    class="form-control" id="ramoAtividade" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="comprador">Comprador</label>
+                                                <input type="text" name="comprador" class="form-control" id="comprador"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="diretor">Diretor</label>
+                                                <input type="text" name="diretor" class="form-control" id="diretor"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="financeiro">Financeiro</label>
+                                                <input type="text" name="financeiro" class="form-control"
+                                                    id="financeiro" required>
+                                            </div>
+                                        </div>
+                                        <h5>Endereço da unidade consumidora</h5>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="cep">CEP DA UNIDADE CONSUMIDORA</label>
+                                                <input type="number" name="cep" class="form-control" id="cepPJ" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="estado">ESTADO DA UNIDADE CONSUMIDORA</label>
+                                                <input type="text" name="estado" class="form-control" id="estadoPJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="cidade">CIDADE DA UNIDADE CONSUMIDORA</label>
+                                                <input type="text" name="cidade" class="form-control" id="cidadePJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="endereco">ENDEREÇO DA UNIDADE CONSUMIDORA</label>
+                                                <input type="text" name="endereco" class="form-control" id="enderecoPJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="bairro">BAIRRO DA UNIDADE CONSUMIDORA</label>
+                                                <input type="text" name="bairro" class="form-control" id="bairroPJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="nEnd">NÚMERO DE ENDEREÇO DA UNIDADE CONSUMIDORA</label>
+                                                <input type="number" name="nEnd" class="form-control" id="nEndPJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="compl">COMPLEMENTO DE ENDEREÇO DA UNIDADE
+                                                    CONSUMIDORA</label>
+                                                <input type="text" name="compl" class="form-control" id="complPJ">
+                                            </div>
+                                            <div class="custom-file">
+                                                <input type="file" onchange="previewFile()" class="custom-file-input"
+                                                    id="comprovanteEnd" required>
+                                                <label class="custom-file-label" id="labelEnd" for="comprovanteEnd"
+                                                    data-browse="Procurar arquivo">Comprovante de
+                                                    Endereço: CONTA DE LUZ DA UNIDADE CONSUMIDORA</label>
+                                                <input type="text" name="comprovanteEnd" class="form-control"
+                                                    id="compbase64" style="display: none;">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <h5>CONTATOS DO CLIENTE DA UNIDADE CONSUMIDORA (NÃO USE DADOS DA SUA REVENDA)
+                                        </h5>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="telefone">Telefone</label>
+                                                <input type="text" name="telefone" class="form-control" id="telefonePJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="telefoneCelular">Telefone Celular</label>
+                                                <input type="text" name="telefoneCelular" class="form-control"
+                                                    id="telefoneCelularPJ" required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="email">E-Mail</label>
+                                                <input type="text" name="email" class="form-control" id="emailPJ"
+                                                    required>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="emailConf">E-Mail Confirme</label>
+                                                <input type="text" name="emailConf" class="form-control" id="emailConfPJ"
+                                                    required>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Registrar</button>
                                     </form>
                                 </div>
                             </div>
@@ -168,7 +283,7 @@
             const file = document.querySelector('input[type=file]').files[0];
             const reader = new FileReader();
 
-            if(file.size > 5e+7) {
+            if (file.size > 5e+7) {
                 alert("O arquivo é muito grande, selecione outro!");
                 document.querySelector('input[type=file]').value = ''
                 return;
@@ -184,6 +299,30 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function getCnpj() {
+            const cnpj = document.getElementById("cnpj").value.replaceAll(".", "").replaceAll("/", "").replaceAll("-", "")
+            axios.get(`https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj}`).then(r => {
+                if (r.error) {
+                    alert("CNPJ não encontrado");
+                }
+                console.log(r.data);
+                document.getElementById("cnae").value = r.data['CNAE PRINCIPAL CODIGO'];
+                document.getElementById("nomeF").value = r.data['NOME FANTASIA'];
+                document.getElementById("razaosocial").value = r.data['RAZAO SOCIAL'];
+                document.getElementById("fundData").value = `${r.data['DATA ABERTURA'].split("/")[2]}-${r.data['DATA ABERTURA'].split("/")[1]}-${r.data['DATA ABERTURA'].split("/")[0]}`
+                document.getElementById("ramoAtividade").value = r.data['CNAE PRINCIPAL DESCRICAO'];
+                document.getElementById("cepPJ").value = r.data['CEP'];
+                document.getElementById("estadoPJ").value = r.data['UF'];
+                document.getElementById("cidadePJ").value = r.data['MUNICIPIO'];
+                document.getElementById("enderecoPJ").value = `${r.data['TIPO LOGRADOURO']} ${r.data['LOGRADOURO']}`
+                document.getElementById("nEndPJ").value = r.data['NUMERO'];
+                document.getElementById("complPJ").value = r.data['COMPLEMENTO'];
+                document.getElementById("telefoneCelularPJ").value = `(${r.data['DDD']}) ${r.data['TELEFONE']}`
+                document.getElementById("emailPJ").value = r.data['EMAIL'];
+                document.getElementById("emailConfPJ").value = r.data['EMAIL'];
+            });
+        };
     </script>
 
     <%- include('../../partials/footer.ejs') %>

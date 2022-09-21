@@ -90,8 +90,8 @@
                                                 <input type="text" name="compl" class="form-control" id="compl">
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" onchange="previewFile()" class="custom-file-input"
-                                                    id="comprovanteEnd" required>
+                                                <input type="file" onchange="previewFile('PF')"
+                                                    class="custom-file-input" id="comprovanteEnd" required>
                                                 <label class="custom-file-label" id="labelEnd" for="comprovanteEnd"
                                                     data-browse="Procurar arquivo">Comprovante de
                                                     Endereço: CONTA DE LUZ DA UNIDADE CONSUMIDORA</label>
@@ -232,13 +232,13 @@
                                                 <input type="text" name="compl" class="form-control" id="complPJ">
                                             </div>
                                             <div class="custom-file">
-                                                <input type="file" onchange="previewFile()" class="custom-file-input"
-                                                    id="comprovanteEnd" required>
-                                                <label class="custom-file-label" id="labelEnd" for="comprovanteEnd"
+                                                <input type="file" onchange="previewFile('PJ')"
+                                                    class="custom-file-input" id="comprovanteEndPJ" required>
+                                                <label class="custom-file-label" id="labelEndPJ" for="comprovanteEndPJ"
                                                     data-browse="Procurar arquivo">Comprovante de
                                                     Endereço: CONTA DE LUZ DA UNIDADE CONSUMIDORA</label>
                                                 <input type="text" name="comprovanteEnd" class="form-control"
-                                                    id="compbase64" style="display: none;">
+                                                    id="compbase64PJ" style="display: none;">
                                             </div>
                                         </div>
                                         <br>
@@ -279,21 +279,39 @@
     </section>
 
     <script>
-        function previewFile() {
+        function previewFile(type) {
             const preview = document.querySelector('img');
-            const file = document.querySelector('input[type=file]').files[0];
+            let file;
+            if (type === "PJ") {
+                file = document.getElementById("comprovanteEndPJ").files[0];
+            } else if (type === "PF") {
+                file = document.getElementById("comprovanteEnd").files[0];
+            }
             const reader = new FileReader();
 
-            if (file.size > 5e+7) {
-                alert("O arquivo é muito grande, selecione outro!");
-                document.querySelector('input[type=file]').value = ''
-                return;
+            if (type === "PJ") {
+                if (file.size > 5e+7) {
+                    alert("O arquivo é muito grande, selecione outro!");
+                    document.getElementById("comprovanteEndPJ").value = ''
+                    return;
+                }
+            } else if (type === "PF") {
+                if (file.size > 5e+7) {
+                    alert("O arquivo é muito grande, selecione outro!");
+                    document.getElementById("comprovanteEnd").value = ''
+                    return;
+                }
             }
 
             reader.addEventListener("load", () => {
                 preview.src = reader.result;
-                document.getElementById("labelEnd").innerText = document.getElementById("comprovanteEnd").value
-                document.getElementById("compbase64").value = reader.result
+                if (type === "PJ") {
+                    document.getElementById("labelEndPJ").innerText = document.getElementById("comprovanteEndPJ").value
+                    document.getElementById("compbase64PJ").value = reader.result
+                } else if (type === "PF") {
+                    document.getElementById("labelEnd").innerText = document.getElementById("comprovanteEnd").value
+                    document.getElementById("compbase64").value = reader.result
+                }
             }, false);
 
             if (file) {

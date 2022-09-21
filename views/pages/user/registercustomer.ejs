@@ -198,7 +198,8 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="cep">CEP DA UNIDADE CONSUMIDORA</label>
-                                                <input type="number" name="cep" class="form-control" id="cepPJ" required>
+                                                <input type="number" name="cep" class="form-control" id="cepPJ"
+                                                    required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="estado">ESTADO DA UNIDADE CONSUMIDORA</label>
@@ -262,8 +263,8 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="emailConf">E-Mail Confirme</label>
-                                                <input type="text" name="emailConf" class="form-control" id="emailConfPJ"
-                                                    required>
+                                                <input type="text" name="emailConf" class="form-control"
+                                                    id="emailConfPJ" required>
                                             </div>
                                         </div>
                                         <button class="btn btn-primary" type="submit">Registrar</button>
@@ -305,22 +306,23 @@
             axios.get(`https://api-publica.speedio.com.br/buscarcnpj?cnpj=${cnpj}`).then(r => {
                 if (r.error) {
                     alert("CNPJ não encontrado");
+                } else {
+                    console.log(r.data);
+                    document.getElementById("cnae").value = r.data['CNAE PRINCIPAL CODIGO'];
+                    document.getElementById("nomeF").value = r.data['NOME FANTASIA'];
+                    document.getElementById("razaosocial").value = r.data['RAZAO SOCIAL'];
+                    document.getElementById("fundData").value = `${r.data['DATA ABERTURA'].split("/")[2]}-${r.data['DATA ABERTURA'].split("/")[1]}-${r.data['DATA ABERTURA'].split("/")[0]}`
+                    document.getElementById("ramoAtividade").value = r.data['CNAE PRINCIPAL DESCRICAO'];
+                    document.getElementById("cepPJ").value = r.data['CEP'];
+                    document.getElementById("estadoPJ").value = r.data['UF'];
+                    document.getElementById("cidadePJ").value = r.data['MUNICIPIO'];
+                    document.getElementById("enderecoPJ").value = `${r.data['TIPO LOGRADOURO']} ${r.data['LOGRADOURO']}`
+                    document.getElementById("nEndPJ").value = r.data['NUMERO'];
+                    document.getElementById("complPJ").value = r.data['COMPLEMENTO'];
+                    document.getElementById("telefoneCelularPJ").value = `(${r.data['DDD']}) ${r.data['TELEFONE']}`
+                    document.getElementById("emailPJ").value = r.data['EMAIL'];
+                    document.getElementById("emailConfPJ").value = r.data['EMAIL'];
                 }
-                console.log(r.data);
-                document.getElementById("cnae").value = r.data['CNAE PRINCIPAL CODIGO'];
-                document.getElementById("nomeF").value = r.data['NOME FANTASIA'];
-                document.getElementById("razaosocial").value = r.data['RAZAO SOCIAL'];
-                document.getElementById("fundData").value = `${r.data['DATA ABERTURA'].split("/")[2]}-${r.data['DATA ABERTURA'].split("/")[1]}-${r.data['DATA ABERTURA'].split("/")[0]}`
-                document.getElementById("ramoAtividade").value = r.data['CNAE PRINCIPAL DESCRICAO'];
-                document.getElementById("cepPJ").value = r.data['CEP'];
-                document.getElementById("estadoPJ").value = r.data['UF'];
-                document.getElementById("cidadePJ").value = r.data['MUNICIPIO'];
-                document.getElementById("enderecoPJ").value = `${r.data['TIPO LOGRADOURO']} ${r.data['LOGRADOURO']}`
-                document.getElementById("nEndPJ").value = r.data['NUMERO'];
-                document.getElementById("complPJ").value = r.data['COMPLEMENTO'];
-                document.getElementById("telefoneCelularPJ").value = `(${r.data['DDD']}) ${r.data['TELEFONE']}`
-                document.getElementById("emailPJ").value = r.data['EMAIL'];
-                document.getElementById("emailConfPJ").value = r.data['EMAIL'];
             });
         };
     </script>

@@ -226,7 +226,22 @@ router.get("/registrarcliente", (req, res, next) => {
 });
 
 router.post("/registrarcliente", (req, res, next) => {
-  console.log(req.body);
+  const customer = req.body;
+  const db = getDatabase();
+  const users = ref(db, "users");
+  onValue(users, async (snapshot) => {
+    let userUpdate = snapshot.val().map(u => {
+      if (u._id === req.user._id) {
+        let c = [];
+        if (u.customers !== undefined) {
+          c = u.customers
+        }
+        u.customers = c.push(customer);
+      }
+      return u;
+    });
+    set(ref(db, "users"), userUpdate);
+  });
   return res.redirect("/usuario/conta?message=cregistrado");
 });
 

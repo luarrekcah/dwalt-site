@@ -232,11 +232,12 @@ router.post("/registrarcliente", (req, res, next) => {
   onValue(users, async (snapshot) => {
     let userUpdate = snapshot.val().map(u => {
       if (u._id === req.user._id) {
-        let c = [];
+        let cArray = [];
         if (u.customers !== undefined) {
-          c = u.customers
+          cArray = u.customers
         }
-        u.customers = c.push(customer);
+        cArray.push(customer);
+        u.customers = cArray;
       }
       return u;
     });

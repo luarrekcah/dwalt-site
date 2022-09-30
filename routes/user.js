@@ -241,9 +241,10 @@ router.post("/registrarcliente", (req, res, next) => {
       }
       return u;
     });
+    console.log(userUpdate); // nn ta atualizando na DB e nem fazendo redirect
     set(ref(db, "users"), userUpdate);
+    return res.redirect("/usuario/conta?message=cregistrado");
   });
-  return res.redirect("/usuario/conta?message=cregistrado");
 });
 
 

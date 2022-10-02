@@ -10,7 +10,7 @@
 	defaults = {
 		// data sources
 		html: false,
-		photo: false,
+		photo: true,
 		iframe: false,
 		inline: false,
 

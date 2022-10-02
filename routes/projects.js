@@ -27,17 +27,18 @@ router.get("/", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     const db = getDatabase();
     const dataWebSite = ref(db, "dataWebSite");
-    onValue(dataWebSite, (snapshot) => {
+    onValue(dataWebSite, async (snapshot) => {
       const findById = () => {
         return snapshot.val().projects.find((item) => item.id === req.params.id);
       };
+      const projeto = findById();
       const data = {
         dbData: snapshot.val(),
         project: findById(),
         og: {
-          title: "Projeto - " + findById() === undefined ? 'Projeto' : findById().title,
-          desc: findById() === undefined ? 'None' : findById().desc,
-          banner: findById() === undefined ? 'None' : findById().media[0],
+          title: "Projeto - " + projeto.title,
+          desc: projeto.desc,
+          banner: projeto.media[0],
         },
         logMessage: {
           content: null,

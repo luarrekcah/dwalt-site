@@ -26,6 +26,15 @@
     moment.locale('pt-br');   
   </script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TF6XMTWD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-B5TF6XMTWD');
+  </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin="" />
@@ -84,9 +93,10 @@
             <ul class="list-unstyled">
               <% if(user) { %>
                 <li>Olá <%=user.documents.name.split(" ")[0]%>! | </li>
-                <li><a href="/usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
+                <li><a href=" /usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
                 <% } else { %>
-                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login" style="color:#3266af;; font-weight: 700;">Seja Revendedor D Walt</a></li>
+                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login"
+                      style="color:#3266af;; font-weight: 700;">Seja Revendedor D Walt</a></li>
                   <% } %>
             </ul>
           </div>

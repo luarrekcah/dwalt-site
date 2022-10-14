@@ -1,56 +1,54 @@
-<section id="project-area" class="project-area solid-bg dark-bg">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-lg-12">
-        <h2 class="section-title">Trabalho de Excelência</h2>
-        <h3 class="section-sub-title">Projetos Recentes</h3>
-      </div>
-    </div>
-    <!--/ Title row end -->
+<% if(dbData.projects) {%>
 
-    <div class="row">
-      <div class="carousel" style="width: 100%; height: 100%">
-        <%dbData.projects.forEach((item, i) => { %>
-          <%if(!item.coords) return %>
-        <div
-          class="col-lg-4 col-sm-6 shuffle-item"
-          data-groups='["<%=item.type%>"]'
-        >
-          <div class="project-img-container">
-            <a
-              class="gallery-popup"
-              href="<%=item.media[0]%>"
-              aria-label="project-img"
-            >
-              <img
-                class="img-fluid"
-                src="<%=item.media[0]%>"
-                alt="project-img"
-              />
-              <span class="gallery-icon"><i class="fa fa-plus"></i></span>
-            </a>
-            <div class="project-item-info">
-              <div class="project-item-info-content">
-                <h3 class="project-item-title">
-                  <a href="/projetos/<%=item.id%>"><%=item.title%></a>
-                </h3>
-                <p class="project-cat"><%=item.type%></p>
+  <section id="project-area" class="project-area solid-bg dark-bg">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-12">
+          <h2 class="section-title">Trabalho de Excelência</h2>
+          <h3 class="section-sub-title">Projetos Recentes</h3>
+        </div>
+      </div>
+      <!--/ Title row end -->
+
+      <div class="row">
+        <div class="carousel" style="width: 100%; height: 100%">
+          <%dbData.projects.forEach((item, i)=> { %>
+            <%if(!item.coords) return %>
+              <div class="col-lg-4 col-sm-6 shuffle-item" data-groups='["<%=item.type%>"]'>
+                <div class="project-img-container">
+                  <a class="gallery-popup" href="<%=item.media[0]%>" aria-label="project-img">
+                    <img class="img-fluid" src="<%=item.media[0]%>" alt="project-img" />
+                    <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                  </a>
+                  <div class="project-item-info">
+                    <div class="project-item-info-content">
+                      <h3 class="project-item-title">
+                        <a href="/projetos/<%=item.id%>">
+                          <%=item.title%>
+                        </a>
+                      </h3>
+                      <p class="project-cat">
+                        <%=item.type%>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+              <!-- shuffle item 1 end -->
+              <%})%>
+        </div>
+
+        <div class="col-12">
+          <div class="general-btn text-center">
+            <a style="color: #009eef;background-color: white;" class="btn btn-primary" data-aos="fade-up"
+              href="/projetos">Ver todos os projetos</a>
           </div>
         </div>
-        <!-- shuffle item 1 end -->
-        <%})%>
       </div>
-
-      <div class="col-12">
-        <div class="general-btn text-center">
-          <a style="color: #009eef;background-color: white;" class="btn btn-primary" data-aos="fade-up" href="/projetos">Ver todos os projetos</a>
-        </div>
-      </div>
+      <!-- Content row end -->
     </div>
-    <!-- Content row end -->
-  </div>
-  <!--/ Container end -->
-</section>
-<!-- Project area end -->
+    <!--/ Container end -->
+  </section>
+  <!-- Project area end -->
+
+  <%}%>

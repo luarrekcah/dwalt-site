@@ -7,6 +7,7 @@ jQuery(function ($) {
 
 	AOS.init();
 	$(window).on('scroll', function () {
+		AOS.init();
 		// fixedHeader on scroll
 		function fixedHeader() {
 			var headerTopBar = $('.top-bar').outerHeight();

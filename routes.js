@@ -1,3 +1,5 @@
+const { getDatabase, ref, onValue } = require("@firebase/database");
+
 const indexRouter = require("./routes/index"),
   projectsRouter = require("./routes/projects"),
   productsRouter = require("./routes/store"),
@@ -25,12 +27,9 @@ module.exports = (app) => {
   app.use("/vagas", jobsRouter);
   app.use("/pesquisa", searchRouter);
   app.use("/staffs", staffsRouter);
-
   app.use("/usuario", userRouter);
-
   app.use("/checkout-session", checkoutSessionRouter);
   app.use("/create-checkout-session", createCheckoutSessionRouter);
   app.use("/webhook", webhookRouter);
-
   app.use("*", notFoundRouter);
 } 

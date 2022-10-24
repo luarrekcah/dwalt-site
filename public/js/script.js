@@ -5,7 +5,6 @@ jQuery(function ($) {
 	/*  Fixed header
 	/* ----------------------------------------------------------- */
 
-	AOS.init();
 	$(window).on('scroll', function () {
 		AOS.init();
 		// fixedHeader on scroll
@@ -80,6 +79,7 @@ jQuery(function ($) {
 
 	$(document).ready(function () {
 		// navSearch show/hide
+		AOS.init();
 		function navSearch() {
 			$('.nav-search').on('click', function () {
 				$('.search-block').fadeIn(350);

@@ -75,7 +75,7 @@
 
           </div>
           <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
-            <ul class="list-unstyled">
+            <!-- <ul class="list-unstyled">
               <li>
                 <a title="Facebook" href="<%= dbData.infos.facebook %>">
                   <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
@@ -84,14 +84,19 @@
                   <span class="social-icon"><i class="fab fa-instagram"></i></span>
                 </a>
               </li>
-            </ul>
+            </ul> 
+            -->
             <ul class="list-unstyled">
+              <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefone %>">
+                  <span class="icon label-before fa fa-mobile" style="color:#3266af;"></span> Fale Conosco <%=
+                    dbData.infos.telefone %>
+                </a></p>
               <% if(user) { %>
                 <li>Olá <%=user.documents.name.split(" ")[0]%>! | </li>
                 <li><a href=" /usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
                 <% } else { %>
                   <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login"
-                      style="color:#3266af;; font-weight: 700;">Seja Revendedor D Walt</a></li>
+                      style="color:#3266af; font-weight: 700;">Seja Revendedor D Walt</a></li>
                   <% } %>
             </ul>
           </div>
@@ -110,21 +115,23 @@
                     alt="D Walt Logo">
                 </a>
               </div>
+              <!--
+
               <div class="col-lg-9 header-right">
                 <ul class="top-info-box">
-                  <li>
+                 
+                 <li>
                     <div class="info-box">
                       <div class="info-box-content">
                         <p class="info-box-title">Telefones</p>
-                        <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefone %>">
-                            <%= dbData.infos.telefone %>
-                          </a></p>
+                       
                         <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefoneTwo %>">
                             <%= dbData.infos.telefoneTwo %>
                           </a></p>
                       </div>
                     </div>
                   </li>
+                
                   <li>
                     <div class="info-box">
                       <div class="info-box-content">
@@ -135,22 +142,21 @@
                       </div>
                     </div>
                   </li>
+                -->
 
-                 <!--<li class="header-get-a-quote">
+              <!--<li class="header-get-a-quote">
                     <a class="btn btn-primary" href="<%= dbData.infos.whatsapp %>">CLIQUE AQUI PARA ORÇAMENTO OU CONTATO</a>
                   </li>
-                  --> 
+                  
                 </ul>
               </div>
+              -->
             </div>
-            <h3 data-aos="zoom-in" class="slogan" style=" color:#3266af; text-align: center; padding: 20px; margin-bottom: -10px;
+            <h3 class="slogan" style=" color:#3266af; text-align: center; padding: 20px; margin-bottom: -10px;
             padding-top: 30px;">
               Bem vindo a maior revenda do
               <b style="color: #00a859">País</b>!
             </h3>
-            <script>
-              AOS.init();
-            </script>
           </div>
         </div>
       </div>
@@ -167,47 +173,49 @@
                   <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="/">Página Principal</a></li>
                     <% if(dbData.projects) {%>
-                    <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
-                    <% } %> 
-                    <% if(dbData.products) {%>
-                    <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
-                    <% } %> 
-                    <% if(dbData.services) {%>
-                    <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
-                    <% } %> 
-                    <% if(dbData.blogPosts) {%>
-                    <li class="nav-item"><a class="nav-link" href="/blog">blog</a></li>
-                    <% } %> 
-                    <li class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Empresa <i
-                          class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="/vagas">Trabalhe Conosco</a></li>
-                        <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Termos e Políticas</a>
-                          <ul class="dropdown-menu">
-                            <li><a href="/politica">Política de Privacidade</a></li>
-                            <li><a href="/termos">TERMOS E CONDIÇÕES GERAIS DE USO E/OU DE VENDA</a></li>
-                          </ul>
-                        </li>
-                        <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dúvidas</a>
-                          <ul class="dropdown-menu">
-                            <li><a href="/faq">F.A.Q</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="/staffs">Staffs</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ferramentas <i
-                          class="fa fa-angle-down"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="/integracoes/banco-bv">Banco BV</a></li>
-                        <li><a href="/mediakit.rar">Media Kit</a></li>
-                      </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="/contato">contato</a></li>
+                      <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
+                      <% } %>
+                        <% if(dbData.products) {%>
+                          <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
+                          <% } %>
+                            <% if(dbData.services) {%>
+                              <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
+                              <% } %>
+                                <% if(dbData.blogPosts) {%>
+                                  <li class="nav-item"><a class="nav-link" href="/blog">blog</a></li>
+                                  <% } %>
+                                    <li class="nav-item dropdown">
+                                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Empresa <i
+                                          class="fa fa-angle-down"></i></a>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/vagas">Trabalhe Conosco</a></li>
+                                        <li class="dropdown-submenu">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Termos e
+                                            Políticas</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="/politica">Política de Privacidade</a></li>
+                                            <li><a href="/termos">TERMOS E CONDIÇÕES GERAIS DE USO E/OU DE VENDA</a>
+                                            </li>
+                                          </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dúvidas</a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="/faq">F.A.Q</a></li>
+                                          </ul>
+                                        </li>
+                                        <li><a href="/staffs">Staffs</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ferramentas <i
+                                          class="fa fa-angle-down"></i></a>
+                                      <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/integracoes/banco-bv">Banco BV</a></li>
+                                        <li><a href="/mediakit.rar">Media Kit</a></li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="/contato">contato</a></li>
                   </ul>
                 </div>
               </nav>

@@ -69,95 +69,43 @@
           </figure>
         </a>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-8">
-
-          </div>
-          <div class="col-lg-4 col-md-4 top-social text-center text-md-right">
-            <!-- <ul class="list-unstyled">
-              <li>
-                <a title="Facebook" href="<%= dbData.infos.facebook %>">
-                  <span class="social-icon"><i class="fab fa-facebook-f"></i></span>
-                </a>
-                <a title="Instagram" href="<%= dbData.infos.instagram %>">
-                  <span class="social-icon"><i class="fab fa-instagram"></i></span>
-                </a>
-              </li>
-            </ul> 
-            -->
-            <ul class="list-unstyled">
-              <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefone %>">
-                  <span class="icon label-before fa fa-mobile" style="color:#3266af;"></span> Fale Conosco <%=
-                    dbData.infos.telefone %>
-                </a></p>
-              <% if(user) { %>
-                <li>Olá <%=user.documents.name.split(" ")[0]%>! | </li>
-                <li><a href=" /usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
-                <% } else { %>
-                  <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login"
-                      style="color:#3266af; font-weight: 700;">Seja Revendedor D Walt</a></li>
-                  <% } %>
-            </ul>
-          </div>
+      <div class="container" style=" text-align: center;">
+        <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefone %>">
+            <span class="icon label-before fa fa-mobile" style="color:#3266af;"></span> Fale Conosco <%=
+              dbData.infos.telefone %>
+          </a></p>
+        <div style="list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-right: -12px; display: flex; align-items: center;
+  justify-content: center;">
+          <% if(user) { %>
+            <li>Olá <%=user.documents.name.split(" ")[0]%>! | </li>
+          <li><a href=" /usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
+            <% } else { %>
+              <li><a href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login"
+                  style="color:#3266af; font-weight: 700;">Seja Revendedor D Walt</a></li>
+              <% } %>
         </div>
       </div>
     </div>
     <header id="header" class="header-one">
       <div class="bg-white">
         <div class="container">
-          <div class="logo-area">
-            <div class="row align-items-center">
-              <div class="logo col-lg-3 text-center text-lg-left mb-3 mb-md-5 mb-lg-0">
-                <a class="d-block" href="/">
-                  <img loading="lazy"
-                    src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/d%20walt%20logo%20nova.svg?v=1644971753268"
-                    alt="D Walt Logo">
-                </a>
-              </div>
-              <!--
-
-              <div class="col-lg-9 header-right">
-                <ul class="top-info-box">
-                 
-                 <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                        <p class="info-box-title">Telefones</p>
-                       
-                        <p class="info-box-subtitle"><a href="tel:<%= dbData.infos.telefoneTwo %>">
-                            <%= dbData.infos.telefoneTwo %>
-                          </a></p>
-                      </div>
-                    </div>
-                  </li>
-                
-                  <li>
-                    <div class="info-box">
-                      <div class="info-box-content">
-                        <p class="info-box-title">E-mail</p>
-                        <p class="info-box-subtitle"><a href="mailto:<%= dbData.infos.email %>">
-                            <%= dbData.infos.email %>
-                          </a></p>
-                      </div>
-                    </div>
-                  </li>
-                -->
-
-              <!--<li class="header-get-a-quote">
-                    <a class="btn btn-primary" href="<%= dbData.infos.whatsapp %>">CLIQUE AQUI PARA ORÇAMENTO OU CONTATO</a>
-                  </li>
-                  
-                </ul>
-              </div>
-              -->
+          <div class="logo-area" style="display: flex; align-items: center;
+            justify-content: center;">
+            <div class="logo ">
+              <a class="d-block" href="/">
+                <img loading="lazy"
+                  src="https://cdn.glitch.global/e3790b73-514c-45b3-a987-85c9a4b7481f/d%20walt%20logo%20nova.svg?v=1644971753268"
+                  alt="D Walt Logo">
+              </a>
             </div>
-            <h3 class="slogan" style=" color:#3266af; text-align: center; padding: 20px; margin-bottom: -10px;
-            padding-top: 30px;">
-              Bem vindo a maior revenda do
-              <b style="color: #00a859">País</b>!
-            </h3>
           </div>
+          <h3 class="slogan" style=" color:#3266af; text-align: center; padding: 20px; margin-bottom: -10px;">
+            Bem vindo a maior revenda do
+            <b style="color: #00a859">País</b>!
+          </h3>
         </div>
       </div>
       <div class="site-navigation" style="z-index: 900;">

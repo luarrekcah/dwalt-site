@@ -120,16 +120,16 @@
                 <div id="navbar-collapse" class="collapse navbar-collapse">
                   <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item active"><a class="nav-link" href="/">Página Principal</a></li>
-                    <% if(dbData.projects) {%>
+                    <% if(dbData.projects && dbData.projects.length >= 5) {%>
                       <li class="nav-item"><a class="nav-link" href="/projetos">Projetos</a></li>
                       <% } %>
-                        <% if(dbData.products) {%>
+                        <% if(dbData.products && dbData.products.length >= 5) {%>
                           <li class="nav-item"><a class="nav-link" href="/produtos">Produtos</a></li>
                           <% } %>
-                            <% if(dbData.services) {%>
+                            <% if(dbData.services && dbData.services.length >= 5) {%>
                               <li class="nav-item"><a class="nav-link" href="/servicos">Serviços</a></li>
                               <% } %>
-                                <% if(dbData.blogPosts) {%>
+                                <% if(dbData.blogPosts && dbData.blogPosts.length >= 5) {%>
                                   <li class="nav-item"><a class="nav-link" href="/blog">blog</a></li>
                                   <% } %>
                                     <li class="nav-item dropdown">

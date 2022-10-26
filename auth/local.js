@@ -26,10 +26,10 @@ module.exports = (passport) => {
     passport.deserializeUser((id, done) => {
       try {
         const user = findUserById(id);
-        return done(null, user._id);
+        done(null, user);
       } catch (err) {
         console.log(err);
-        return done(err, null);
+        done(err, null);
       }
     });
 
@@ -44,7 +44,7 @@ module.exports = (passport) => {
             const isValid = bcrypt.compareSync(password, user.password);
 
             if (!isValid) return done(null, false);
-            return done(null, user);
+            return done(null, user._id);
           } catch (err) {
             console.log(err);
             return done(err, false);

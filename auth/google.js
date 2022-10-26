@@ -34,7 +34,7 @@ passport.use(
         passport.deserializeUser((id, done) => {
           try {
             const user = findUserById(id);
-            done(null, user);
+            return done(null, user._id);
           } catch (err) {
             console.log(err);
             return done(err, null);

@@ -14,38 +14,50 @@ router.get("/", (req, res, next) => {
   onValue(dataWebSite, (snapshot) => {
     let results = [];
 
-    snapshot.val().products.forEach((item, i) => {
-      if (snapshot.val().products[i].resumedtitle.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().products[i].resumedtitle, href: `/produtos/${snapshot.val().products[i].code}`});
-      }
-    });
+    const db = snapshot.val();
 
-    snapshot.val().blogPosts.forEach((item, i) => {
-      if (snapshot.val().blogPosts[i].title.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().blogPosts[i].title, href: `/blog/${snapshot.val().blogPosts[i].id}`});
-      }
-    });
+    if (db.products) {
+      db.products.forEach((item, i) => {
+        if (item.resumedtitle.toLowerCase().includes(req.query.q.toLowerCase())) {
+          results.push({ title: item.resumedtitle, href: `/produtos/${item.code}` });
+        }
+      });
+    }
 
-    snapshot.val().projects.forEach((item, i) => {
-      if (snapshot.val().projects[i].title.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().projects[i].title, href: `/projetos/${snapshot.val().projects[i].id}`});
-      }
-    });
- 
-    snapshot.val().services.forEach((item, i) => {
-      if (snapshot.val().services[i].title.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().services[i].title, href: `/servicos/${snapshot.val().services[i].id}`});
-      }
-    });
+    if (db.blogPosts) {
+      db.blogPosts.forEach((item, i) => {
+        if (item.title.toLowerCase().includes(req.query.q.toLowerCase())) {
+          results.push({ title: item.title, href: `/blog/${item.id}` });
+        }
+      });
+    }
 
-    snapshot.val().vagas.forEach((item, i) => {
-      if (snapshot.val().vagas[i].titulo.toLowerCase().includes(req.query.q.toLowerCase()) ) {
-         results.push({title: snapshot.val().vagas[i].titulo, href: `/vagas/${snapshot.val().vagas[i].id}`});
-      }
-    });
- 
+    if (db.projects) {
+      db.projects.forEach((item, i) => {
+        if (item.title.toLowerCase().includes(req.query.q.toLowerCase())) {
+          results.push({ title: item.title, href: `/projetos/${item.id}` });
+        }
+      });
+    }
+
+    if (db.services) {
+      db.services.forEach((item, i) => {
+        if (item.title.toLowerCase().includes(req.query.q.toLowerCase())) {
+          results.push({ title: item.title, href: `/servicos/${item.id}` });
+        }
+      });
+    }
+
+    if (db.vagas) {
+      db.vagas.forEach((item, i) => {
+        if (item.titulo.toLowerCase().includes(req.query.q.toLowerCase())) {
+          results.push({ title: item.titulo, href: `/vagas/${item.id}` });
+        }
+      });
+    }
+
     const data = {
-      dbData: snapshot.val(),
+      dbData: db,
       og: {
         title: "Pesquisa - " + req.query.q,
         desc: "Resultado da pesquisa " + req.query.q,

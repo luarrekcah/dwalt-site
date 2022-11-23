@@ -1,84 +1,71 @@
 <%- include('../../partials/header.ejs') %>
-    <section id="main-container" class="main-container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" style="margin-bottom: 30px;">
-                    <h3 class="column-title">Login Rápido</h3>
-                    <a class="btn btn-primary" href="google">
-                        <span class="social-icon"><i class="fab fa-google"></i></span>
-                        Fazer Login Com Google</a>
-                        <small class="form-text text-muted">
-                            Note que, ao realizar o login pelo Google, 
-                            você será impossibilitado de entrar pelo meio comum,
-                             os dados não são compartilhados. Caso deseje realizar
-                            a transferência de dados, entre em contato com o suporte técnico.
-                        </small>
-                </div>
-                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                    <h3 class="column-title">Já sou cadastrado</h3>
-                    <form method="POST">
-                        <div class="form-group">
-                            <label for="email_log">Endereço de E-Mail</label>
-                            <input type="email" name="email" class="form-control" id="email_log"
-                                aria-describedby="emailHelp" placeholder="exemplo@empresa.com.br" required>
-                            <small id="emailHelp" class="form-text text-muted">
-                                Nós nunca compartilhamos suas informações.
-                            </small>
-                        </div>
-                        <div class="form-group">
-                            <label for="password_log">Senha</label>
-                            <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!"
-                                name="password" type="password" class="form-control" id="password_log"
-                                placeholder="********" required>
-                        </div>
-                        <div>
-                            <% if(logMessage.content==='credentials' ) { %>
-                                <p style="color: red;">Verifique suas credenciais!</p>
-                                <% } %>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </form>
-                </div>
-                <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                    <h3 class="column-title" style="padding-top: 20px;">Ainda não tenho cadastro</h3>
-                    <form method="POST" action="registrar">
-                        <div class="form-group">
-                            <label for="email">Endereço de E-Mail</label>
-                            <input type="email" name="email" class="form-control" id="email"
-                                aria-describedby="emailHelp" placeholder="exemplo@empresa.com.br" required>
-                            <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos suas
-                                informações.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Senha</label>
-                            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!"
-                                name="password" class="form-control" id="password" placeholder="********" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="repeatPassword">Repetir senha</label>
-                            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!"
-                                name="confPass" class="form-control" id="repeatPassword" placeholder="********"
-                                required>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                            <label class="form-check-label" for="exampleCheck1">Li e estou de acordo com a <a
-                                    style="color: #009eef;" href="/politica">Política de Privacidade</a>, <a
-                                    style="color: #009eef;" href="/termos">Termos de Uso</a> e <a
-                                    style="color: #009eef;" href="/">Boas
-                                    práticas do integrador</a></label>
-                        </div>
-                        <% if(logMessage.content==='passwordsdontmatch' ) { %>
-                            <p style="color: red;">As senhas não são iguais!</p>
-                            <% } %>
-                                <div class="g-recaptcha" data-sitekey="6LdVlH8hAAAAALRFxFNEeXeDHzeHs9OdMDoa7Rkd"></div>
-                                <button type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <%- include('../../partials/footer.ejs') %>
+<section id="main-container" class="main-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="margin-bottom: 30px;">
+        <h3 class="column-title">Login Rápido</h3>
+        <a href="google">
+          <img width="250" src="/images/btn_google_signin_dark_normal_web@2x.png" />
+        </a>
+        <small class="form-text text-muted">
+          Note que, ao realizar o login pelo Google,
+          você será impossibilitado de entrar pelo meio comum,
+          os dados não são compartilhados. Caso deseje realizar
+          a transferência de dados, entre em contato com o suporte técnico.
+        </small>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <h3 class="column-title">Já sou cadastrado</h3>
+        <form method="POST">
+          <div class="form-group">
+            <label for="email_log">Endereço de E-Mail</label>
+            <input type="email" name="email" class="form-control" id="email_log" aria-describedby="emailHelp" placeholder="exemplo@empresa.com.br" required>
+            <small id="emailHelp" class="form-text text-muted">
+              Nós nunca compartilhamos suas informações.
+            </small>
+          </div>
+          <div class="form-group">
+            <label for="password_log">Senha</label>
+            <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!" name="password" type="password" class="form-control" id="password_log" placeholder="********" required>
+          </div>
+          <div>
+            <% if(logMessage.content==='credentials' ) { %>
+            <p style="color: red;">Verifique suas credenciais!</p>
+            <% } %>
+          </div>
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <h3 class="column-title" style="padding-top: 20px;">Ainda não tenho cadastro</h3>
+        <form method="POST" action="registrar">
+          <div class="form-group">
+            <label for="email">Endereço de E-Mail</label>
+            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="exemplo@empresa.com.br" required>
+            <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos suas
+              informações.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!" name="password" class="form-control" id="password" placeholder="********" required>
+          </div>
+          <div class="form-group">
+            <label for="repeatPassword">Repetir senha</label>
+            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Deve conter pelo menos um número e uma letra maiúscula e minúscula e pelo menos 8 ou mais carácteres!" name="confPass" class="form-control" id="repeatPassword" placeholder="********" required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">Li e estou de acordo com a <a style="color: #009eef;" href="/politica">Política de Privacidade</a>, <a style="color: #009eef;" href="/termos">Termos de Uso</a> e <a style="color: #009eef;" href="/">Boas
+                práticas do integrador</a></label>
+          </div>
+          <% if(logMessage.content==='passwordsdontmatch' ) { %>
+          <p style="color: red;">As senhas não são iguais!</p>
+          <% } %>
+          <div class="g-recaptcha" data-sitekey="6LdVlH8hAAAAALRFxFNEeXeDHzeHs9OdMDoa7Rkd"></div>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('../../partials/footer.ejs') %>

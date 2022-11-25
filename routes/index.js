@@ -1,3 +1,5 @@
+const { getReviews } = require("../services/google");
+
 const express = require("express"),
   router = express.Router(),
   { getDatabase, ref, onValue } = require("@firebase/database"),
@@ -7,7 +9,8 @@ const express = require("express"),
 router.get("/", (req, res) => {
   const db = getDatabase();
   const dataWebSite = ref(db, "dataWebSite");
-  onValue(dataWebSite, (snapshot) => {
+  onValue(dataWebSite, async (snapshot) => {
+    const reviews = await getReviews();
     const user = req.user;
     const data = {
       dbData: snapshot.val(),
@@ -33,6 +36,11 @@ router.get("/", (req, res) => {
     res.render("pages/index", data);
   });
 });
+
+router.get("/venda", function (req, res, next) {
+  res.render("pages/landing");
+});
+
 
 router.get("/sitemap.xml", function (req, res, next) {
   res.set("Content-Type", "text/xml");

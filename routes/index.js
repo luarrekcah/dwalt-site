@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
   const db = getDatabase();
   const dataWebSite = ref(db, "dataWebSite");
   onValue(dataWebSite, async (snapshot) => {
-    const reviews = await getReviews();
     const user = req.user;
     const data = {
       dbData: snapshot.val(),

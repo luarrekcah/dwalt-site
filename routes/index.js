@@ -1,5 +1,3 @@
-const { getReviews } = require("../services/google");
-
 const express = require("express"),
   router = express.Router(),
   { getDatabase, ref, onValue } = require("@firebase/database"),

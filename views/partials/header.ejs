@@ -24,7 +24,6 @@
     moment.locale('pt-br');
   </script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5TF6XMTWD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -36,7 +35,6 @@
 
     gtag('config', 'G-B5TF6XMTWD');
   </script>
-  <!-- Google tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-245504528-1">
   </script>
   <script>
@@ -72,26 +70,6 @@
 
 <body>
   <div class="body-inner">
-    <!--<div id="top-bar" class="top-bar">
-      <div class="container" style=" text-align: center;">
-        <p class="info-box-subtitle" style="margin-bottom: -5px; margin-top: -10px; font-size: 13px;"><a href="tel:<%= dbData.infos.telefone %>">
-            <span class="icon label-before fa fa-mobile" style="color:#3266af;"></span> Fale Conosco <%=
-              dbData.infos.telefone %>
-          </a></p>
-        <div style="list-style: none;
-        padding: 0;
-        margin: 0;
-        margin-right: -12px; display: flex; align-items: center;
-  justify-content: center;">
-          <% if(user) { %>
-          <li>Olá <%=user.documents.name.split(" ")[0]%>! | </li>
-          <li><a href=" /usuario/conta">Minha Conta</a> | <a href="/usuario/logout">Sair</a></li>
-          <% } else { %>
-          <li><a style="margin-right: 10px; font-size: 18px;" href="/usuario/login">Entrar</a></li> | <li><a href="/usuario/login" style="color:#3266af; font-weight: 700; margin-left: 10px; font-size: 18px;">Seja Revendedor D Walt</a></li>
-          <% } %>
-        </div>
-      </div>
-    </div>-->
     <header id="header" class="header-one">
       <div class="bg-white">
         <div class="container">
@@ -172,15 +150,6 @@
           <div data-toggle="modal" data-target="#searchModal" class="nav-search">
             <span id="search"><i class="fa fa-search"></i></span>
           </div>
-          <!--
-            <div class="search-block" style="display: none;">
-            <label for="search-field" class="w-100 mb-0">
-              <input type="text" class="form-control" id="search-field"
-                placeholder="Escreva o que você precisa e aperte ENTER">
-            </label>
-            <span class="search-close">&times;</span>
-          </div> 
-        -->
         </div>
       </div>
     </header>
@@ -198,9 +167,6 @@
       }, 3000)
     </script>
     <% } %>
-
-
-    <!-- Modal -->
     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

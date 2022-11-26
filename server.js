@@ -4,7 +4,8 @@ const createError = require("http-errors"),
   logger = require("morgan"),
   cookieParser = require("cookie-parser"),
   passport = require("passport"),
-  session = require("express-session");
+  session = require("express-session"),
+  os = require('os');
 const app = express();
 
 require("./auth/local")(passport);
@@ -33,8 +34,12 @@ app.use(passport.session());
 
 require("./routes")(app);
 
+const networkInterfaces = os.networkInterfaces();
+
+console.log(networkInterfaces);
+
 const listener = app.listen(process.env.PORT || 3000, function () {
-  console.log(`Porta: ${listener.address().port}`);
+  console.log(`PORTA: ${listener.address().port}`);
 });
 
 module.exports = app;

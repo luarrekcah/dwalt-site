@@ -1,8 +1,6 @@
 const express = require("express"),
   router = express.Router(),
-  { getDatabase, ref, onValue } = require("@firebase/database"),
-  fs = require("fs"),
-  xml = fs.readFileSync(__dirname + '/../sitemap.xml');
+  { getDatabase, ref, onValue } = require("@firebase/database");
 
 router.get("/", (req, res) => {
   const db = getDatabase();
@@ -36,16 +34,6 @@ router.get("/", (req, res) => {
 
 router.get("/venda", function (req, res, next) {
   res.render("pages/landing");
-});
-
-
-router.get("/sitemap.xml", function (req, res, next) {
-  res.set("Content-Type", "text/xml");
-  res.send(xml);
-});
-
-router.get("/mediakit.rar", function (req, res, next) {
-  res.send(fs.readFileSync(__dirname + '/../public/mediaKit.rar'));
 });
 
 router.get("/politica", function (req, res, next) {

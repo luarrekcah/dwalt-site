@@ -149,40 +149,11 @@
 <script src="/plugins/aos/aos.js"></script>
 <script src="/plugins/shuffle/shuffle.min.js" ></script>
 <script src="/js/script.js"></script>
-<script type="text/javascript" src="/plugins/notifIt/notifIt.js"></script>
 <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
   crossorigin=""></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-/*
-  let map = L.map('mapaaa').setView([-11.12, -51.661], 3);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    { attribution: '© OpenStreetMap contributors' }).addTo(map);
-  let LeafIcon = L.Icon.extend({
-    options: {
-      shadowUrl: 'leaf-shadow.png',
-      iconSize: [60, 60],
-    }
-  });
-
-  let systemIcon = new LeafIcon({ iconUrl: 'https://static.wixstatic.com/media/2f7194_fa185c61f22e43f193b873822dec1beb~mv2.png/v1/fill/w_426,h_410,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Placa-Painel-Solar.png' });
-
-  <% if (dbData.projects) {%>
-  <% dbData.projects.forEach((item, i) => { %>
-    <%if (!item.coords) return;%>
-      L.marker([<%=item.coords.split(",")[0] %>, <%=item.coords.split(",")[1] %>], { icon: systemIcon }).bindPopup('<%=item.desc%>').addTo(map);
-  <%});%>
-  <%}%>
-
-  */
-</script>
-
 <script
   type="text/javascript">(function (n, r, l, d) { try { var h = r.head || r.getElementsByTagName("head")[0], s = r.createElement("script"); s.defer = true; s.setAttribute("type", "text/javascript"); s.setAttribute("src", l); n.neuroleadId = d; h.appendChild(s); } catch (e) { } })(window, document, "https://cdn.leadster.com.br/neurolead/neurolead.min.js", 26058);</script>
 </div>
-
-
 </body>
-
 </html>
